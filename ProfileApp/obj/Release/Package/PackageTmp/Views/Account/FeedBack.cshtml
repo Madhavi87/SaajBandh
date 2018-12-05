@@ -1,0 +1,84 @@
+﻿@model ProfileApp.Models.FeedBackModel
+@{
+    ViewBag.Title = "FeedBack";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<style>
+    .form-required {
+        color: red;
+    }
+
+    label {
+        font-size: 12px;
+    }
+</style>
+<script type="text/javascript">
+    function capitalize(textboxid, str) {
+        // string with alteast one character
+        if (str && str.length >= 1) {
+            var firstChar = str.charAt(0);
+            var remainingStr = str.slice(1);
+            str = firstChar.toUpperCase() + remainingStr;
+        }
+        document.getElementById(textboxid).value = str;
+    }
+</script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="grid_3">
+        <div class="container">
+        @*    <div class="breadcrumb1">
+                <ul>
+                    <a href="/Home/Home"><i class="fa fa-home home_1"></i></a>
+                    <span class="divider">&nbsp;|&nbsp;</span>
+                    <li class="current-page">Feedback</li>
+                </ul>
+            </div>*@
+               <div style="text-align: center; font-size: 24px; font-weight: bold; color: red">Feedback</div>
+            @if (ViewBag.SavedData != null)
+            {
+                <div class="alert alert-success fade in alert-dismissable" style="margin-top: 18px;">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                    <strong>Success!</strong> Thank you for submitting your valuable feedback.
+                </div>
+            }
+
+            <div class="services">
+                <div class="col-sm-4 login_left">
+                    <form>
+                        <div class="form-group">
+                            <label for="edit-name">Name <span class="form-required" title="This field is required.">*</span></label>
+                            @*<input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">*@
+                            @Html.TextBoxFor(model => Model.Name, new { @class = "form-text required", @placeholder = "Enter Full Name", @name = "name", @value = "", @size = "60", @maxlength = "60" , @onkeyup = "javascript:capitalize(this.id, this.value);"})
+                            <span style="color: red">@Html.ValidationMessageFor(model => model.Name)</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-name">Email <span class="form-required" title="This field is required.">*</span></label>
+                            @*<input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">*@
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-text required", @placeholder = "Enter Email", @name = "name", @value = "", @size = "60", @maxlength = "60" })
+                            <span style="color: red">@Html.ValidationMessageFor(model => model.Email)</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-name">Mobile <span class="form-required" title="This field is required.">*</span></label>
+                            @*<input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">*@
+                            @Html.TextBoxFor(model => model.Mobile, new { @class = "form-text required", @placeholder = "Enter Mobile", @name = "name", @value = "", @size = "60", @maxlength = "10" })
+                            <span style="color: red">@Html.ValidationMessageFor(model => model.Mobile)</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-name">Comments</label>
+                            @Html.TextAreaFor(model => model.Comments, new { @style = "60px", @class = "form-text", @name = "name", @value = "", @size = "60", @maxlength = "60" })
+
+                        </div>
+                        <div class="form-actions">
+                            <input type="submit" id="edit-submit" name="op" value="Submit" class="btn_1 submit">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+}

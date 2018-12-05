@@ -1,0 +1,439 @@
+﻿@model ProfileApp.Models.UserProfileVM
+
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<style>
+    label {
+        font-size: 14px;
+        color: #dacea0;
+        font-style: italic;
+        text-decoration: underline;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #c32143;
+        border-color: #c32143;
+    }
+
+        .btn-primary:hover {
+            background: #ffa417;
+        }
+
+    fieldset {
+        margin-top: 24px;
+        border: 1px solid #000;
+        padding-bottom: 21px;
+        padding-left: 10px;
+        padding-right: 12px;
+        background-color: #c32143;
+    }
+
+    legend {
+        width: 100%;
+        padding: 0;
+        color: #fff;
+        margin-bottom: 20px;
+        padding-top: 30px;
+        font-size: 21px;
+        line-height: inherit;
+        color: #fff;
+        font-weight: bold;
+        border: 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .form-control, .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+        border: none;
+        background-color: transparent;
+        padding-left: 0px;
+        color: #fff;
+        font-size: 16px;
+    }
+</style>
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+
+        //  LoadViews();
+
+        function LoadViews() {
+            $.ajax({
+                url: "@Url.Action("ViewEducation", "EducationDetails")",
+                type: "GET",
+                dataType: "html",
+                success: function (data) {
+                    //$("#res").html(data.view);
+                    $("#divEdu").html(data);
+
+                },
+                error: function () {
+                    alert("Failed! Please try again.");
+                }
+            });
+
+            $.ajax({
+                url: "@Url.Action("ViewEmployment", "EmploymentInfo")",
+                type: "GET",
+                dataType: "html",
+                success: function (data) {
+                    //$("#res").html(data.view);
+                    $("#divEmp").html(data);
+
+                },
+                error: function () {
+                    alert("Failed! Please try again.");
+                }
+            });
+        }
+
+        //$('#DateOfBirth').datepicker({
+        //    dateFormat: 'dd-M-yy',
+        //    changeYear: true, changeMonth: true,
+        //    yearRange: '1970:' + (new Date).getFullYear()
+        //}); 
+
+        $("#btnAddEducation").click(function () {
+            $.ajax({
+                url: "@Url.Action("AddDetails", "EducationDetails")",
+                type: "GET",
+                dataType: "html",
+                success: function (data) {
+                    //$("#res").html(data.view);
+                    $(".modal-body").html(data);
+                    $("#myModal").modal('show');
+
+                },
+                error: function () {
+                    alert("Failed! Please try again.");
+                }
+            });
+        });
+
+        $("#StateID").change(function () {
+            var state = $("#StateID option:selected").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/GetCities",
+                datatype: "Json",
+                data: { id: state },
+                success: function (data) {
+                    $.each(data, function (index, value) {
+                        $('#CityID').append('<option value="' + value.CityID + '">' + value.CityName + '</option>');
+                    });
+
+                }
+            });
+        });
+
+
+
+
+    });
+
+
+</script>*@
+
+
+
+
+<div id="" class="container">
+
+
+
+    <fieldset>
+        <legend>Basic Information</legend>
+
+        @*   <div class="row" style="padding-left: 15px;">
+
+            <div class="col-md-3">
+                <label class="headinglabel"></label>
+                <img id="blah" src="@Model.ImagePath" alt="" style="height: 157px; width: 157px;" />
+
+            </div>
+        </div>*@
+        <div class="row" style="padding-left: 15px; margin-top: 15px;">
+            <div class="col-md-3">
+                <label class="headinglabel">MyAppID</label>
+                @Html.TextBoxFor(model => model.MyAppID, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3" style="position: absolute; left: 69%; top: 35%; height: 239px;">
+                <label class="headinglabel"></label>
+                <img id="blah" src="@Model.ImagePath" alt="" style="height: 522px; width: 261px;" />
+            </div>
+        </div>
+
+        <div class="row" style="padding-left: 15px;">
+            @Html.HiddenFor(model => model.UserID)
+            @Html.HiddenFor(model => model.MyAppID)
+            <div class="col-md-3">
+                <label class="headinglabel">First Name</label>
+
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+
+            <div class="col-md-3">
+                <label class="headinglabel">Middle Name</label>
+                @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Last Name</label>
+                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+        <div class="row" style="padding-left: 15px; margin-top: 15px;">
+            <div class="col-md-3">
+                <label class="headinglabel">Email</label>
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Marital Status</label>
+                @Html.TextBoxFor(model => model.MaritalStatusName, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Birth Date</label>
+                @Html.TextBoxFor(model => model.BirthDateDisplay, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+        </div>
+        <div class="row" style="padding-left: 15px; margin-top: 15px;">
+
+            <div class="col-md-3">
+                <label class="headinglabel">Birth Name</label>
+                @Html.TextBoxFor(model => model.BirthName, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Birth Place</label>
+                @Html.TextBoxFor(model => model.BirthPlace, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Birth Time</label>
+                @Html.TextBoxFor(model => model.BirthTime, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+        </div>
+        <div class="row" style="padding-left: 15px; margin-top: 15px;">
+
+            <div class="col-md-3">
+                <label class="headinglabel">Gotra</label>
+                @Html.TextBoxFor(model => model.Gotra, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Sub Caste</label>
+                @Html.TextBoxFor(model => model.SubCasteName, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+
+        <div class="row" style="padding-left: 15px; margin-top: 15px">
+            <div class="col-md-3">
+                <label class="headinglabel">Complexion</label>
+                @Html.TextBoxFor(model => model.ComplexionName, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+
+
+            <div class="col-md-3">
+                <label class="headinglabel">Height</label>
+                @Html.TextBoxFor(model => model.HeightName, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+
+            <div class="col-md-3">
+                <label class="mylabel">Weight</label>
+                @Html.TextBoxFor(model => model.WeightName, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+
+        </div>
+        <div class="row" style="padding-left: 15px; margin-top: 15px">
+            <div class="col-md-3">
+                <label class="headinglabel">Physically Challenged?</label>
+                @Html.TextBoxFor(model => model.PhysicalyChalengedName, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+
+
+            <div class="col-md-3">
+                <label class="headinglabel">Blood Group</label>
+                @Html.TextBoxFor(model => model.BloodGroupName, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+
+            <div class="col-md-3">
+                <label class="mylabel">Spectacle</label>
+                @Html.TextBoxFor(model => model.SpectacleName, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+
+        </div>
+
+        <div class="row" style="padding-left: 15px; margin-top: 15px">
+            <div class="col-md-3">
+                <label class="headinglabel">Address</label>
+                @Html.TextBoxFor(model => model.RAddress, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+
+
+            <div class="col-md-3">
+                <label class="headinglabel">Mul Gaon</label>
+                @Html.TextBoxFor(model => model.MulGaon, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+
+            <div class="col-md-3">
+                <label class="mylabel">States</label>
+                @Html.TextBoxFor(model => model.StateName, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+
+        </div>
+        <div class="row" style="padding-left: 15px; margin-top: 15px">
+            <div class="col-md-3">
+                <label class="headinglabel">District</label>
+                @Html.TextBoxFor(model => model.CitiName, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+
+
+            <div class="col-md-3">
+                <label class="headinglabel">Taluka</label>
+                @Html.TextBoxFor(model => model.TalukaName, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+        </div>
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Carrer and Eductional Information</legend>
+        <div class="row" style="margin-top: 15px; padding-left: 15px">
+            <div class="col-md-3">
+                <label class="mylabel">School/Degree</label>
+                @Html.TextBoxFor(model => model.DegreeName, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Education Detail</label>
+                @Html.TextBoxFor(model => model.EducationDetail, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 15px; padding-left: 15px">
+            <div class="col-md-3">
+                <label class="mylabel">Service/Business</label>
+                @Html.TextBoxFor(model => model.CarrerTypeName, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Service Detail</label>
+                @Html.TextBoxFor(model => model.ServiceDetail, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Salary</label>
+                @Html.TextBoxFor(model => model.SalaryAnual, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+        </div>
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Family Information</legend>
+
+        <div class="tab-pane" id="3a">
+            <div class="row" style="padding-left: 15px; margin-top: 15px">
+                <div class="col-md-3">
+                    <label class="headinglabel">Father</label>
+                    @Html.TextBoxFor(model => model.FatherName, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+
+                <div class="col-md-3">
+                    <label class="headinglabel">Mother</label>
+                    @Html.TextBoxFor(model => model.MotherName, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="col-md-3">
+                </div>
+
+            </div>
+            <div class="row" style="padding-left: 15px; margin-top: 15px">
+                <div class="col-md-3">
+                    <label class="headinglabel">Father Occupation</label>
+                    @Html.TextBoxFor(model => model.FatherOccupation, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Parent Contact No</label>
+                    @Html.TextBoxFor(model => model.FatherContactNo, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="col-md-3">
+                </div>
+
+            </div>
+            <div class="row" style="padding-left: 15px; margin-top: 15px">
+                <div class="col-md-3">
+                    <label class="headinglabel">Mama Name</label>
+                    @Html.TextBoxFor(model => model.MamaSurName, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Mama Place</label>
+                    @Html.TextBoxFor(model => model.MamaPlace, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="col-md-3">
+                </div>
+
+            </div>
+
+
+        </div>
+    </fieldset>
+
+    @if (Convert.ToInt32(Session["UserID"]) == Model.UserID)
+    {
+
+        <div class="" style="position: absolute; top: 22%; left: 86%;">
+            <div class="">
+                <a href="/Profile/EditProfile" class="btn btn-primary">Edit Profile</a>
+            </div>
+            <div class="col-md-9">
+            </div>
+        </div>
+    }
+</div>
+
+
+<script type="text/javascript">
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imgInp").change(function () {
+        readURL(this);
+    });
+</script>

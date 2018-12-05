@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="89c0f522c1f14c939d755a0326776261" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="ProfileModel.Country" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProfileModel.Gender" Width="1.5" PointX="3.9905255697623483" PointY="3.3628092572851149" />
+        <EntityTypeShape EntityType="ProfileModel.Industry" Width="1.5" PointX="10.366895036011419" PointY="4.0123915989009626" />
+        <EntityTypeShape EntityType="ProfileModel.Education" Width="1.5" PointX="5.2849211289011508" PointY="2.1730991016016805" />
+        <EntityTypeShape EntityType="ProfileModel.EduDegree" Width="1.5" PointX="2.6449225836642656" PointY="16.282247521114652" />
+        <EntityTypeShape EntityType="ProfileModel.EduType" Width="1.5" PointX="3.1588471304433638" PointY="4.2944664975136826" />
+        <EntityTypeShape EntityType="ProfileModel.EmployerType" Width="1.5" PointX="0.63289676636126668" PointY="12.359995668921618" />
+        <EntityTypeShape EntityType="ProfileModel.Employment" Width="1.5" PointX="5.0105126113679788" PointY="17.798097007813908" />
+        <EntityTypeShape EntityType="ProfileModel.BloodGroup" Width="1.5" PointX="3.4322641805895904" PointY="28.241113422550779" />
+        <EntityTypeShape EntityType="ProfileModel.AdminLogin" Width="1.5" PointX="3.2823792562272303" PointY="17.883582659942835" />
+        <EntityTypeShape EntityType="ProfileModel.City" Width="1.5" PointX="9.7976536218997339" PointY="10.758721535447389" />
+        <EntityTypeShape EntityType="ProfileModel.State" Width="1.5" PointX="0.57902306717774976" PointY="23.670784812267303" />
+        <EntityTypeShape EntityType="ProfileModel.UserRegistration" Width="1.5" PointX="4.9252401520149967" PointY="10.629598011555894" />
+        <EntityTypeShape EntityType="ProfileModel.SubCaste" Width="1.5" PointX="6.1317491708936869" PointY="1.4802307344415369" />
+        <EntityTypeShape EntityType="ProfileModel.MaritalStatu" Width="1.5" PointX="8.3659864274626532" PointY="15.466267697264565" />
+        <EntityTypeShape EntityType="ProfileModel.Complexion" Width="1.5" PointX="1.2486438570770639" PointY="15.383427999626578" />
+        <EntityTypeShape EntityType="ProfileModel.Height" Width="1.5" PointX="4.3943615129191249" PointY="11.847638001594524" />
+        <EntityTypeShape EntityType="ProfileModel.Weight" Width="1.5" PointX="5.95236690992134" PointY="31.163564323989473" />
+        <EntityTypeShape EntityType="ProfileModel.UserProfile" Width="1.5" PointX="8.8762966081855339" PointY="29.188243462326117" />
+        <EntityTypeShape EntityType="ProfileModel.Taluka" Width="1.5" PointX="8.2606050000808224" PointY="23.386031936568223" />
+        <EntityTypeShape EntityType="ProfileModel.Feedback" Width="1.5" PointX="9.08559904484339" PointY="20.779153297086783" />
+        <EntityTypeShape EntityType="ProfileModel.VisitorDeail" Width="1.5" PointX="1.6360032472927137" PointY="2.7267929030241413" />
+        <EntityTypeShape EntityType="ProfileModel.OtherCasteUserRegistration" Width="1.5" PointX="0.51030717441360807" PointY="5.8636968312150319" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

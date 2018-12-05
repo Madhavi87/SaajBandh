@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProfileModelStoreContainer" CdmEntityContainer="ProfileEntities">
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ProfileModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="ProfileModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Industries">
+      <EntityTypeMapping TypeName="ProfileModel.Industry">
+        <MappingFragment StoreEntitySet="Industry">
+          <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+          <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Educations">
+      <EntityTypeMapping TypeName="ProfileModel.Education">
+        <MappingFragment StoreEntitySet="Education">
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="PassYear" ColumnName="PassYear" />
+          <ScalarProperty Name="University" ColumnName="University" />
+          <ScalarProperty Name="EducationDegreeID" ColumnName="EducationDegreeID" />
+          <ScalarProperty Name="EduTypeID" ColumnName="EduTypeID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EduDetailID" ColumnName="EduDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EduDegrees">
+      <EntityTypeMapping TypeName="ProfileModel.EduDegree">
+        <MappingFragment StoreEntitySet="EduDegree">
+          <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
+          <ScalarProperty Name="EducationDegreeID" ColumnName="EducationDegreeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EduTypes">
+      <EntityTypeMapping TypeName="ProfileModel.EduType">
+        <MappingFragment StoreEntitySet="EduType">
+          <ScalarProperty Name="EduTypeName" ColumnName="EduTypeName" />
+          <ScalarProperty Name="EduTypeID" ColumnName="EduTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Get_Education" FunctionName="ProfileModel.Store.Get_Education">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProfileModel.Get_Education_Result">
+          <ScalarProperty Name="EduDetailID" ColumnName="EduDetailID" />
+          <ScalarProperty Name="University" ColumnName="University" />
+          <ScalarProperty Name="PassYear" ColumnName="PassYear" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="EduTypeName" ColumnName="EduTypeName" />
+          <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="EmployerTypes">
+      <EntityTypeMapping TypeName="ProfileModel.EmployerType">
+        <MappingFragment StoreEntitySet="EmployerType">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employments">
+      <EntityTypeMapping TypeName="ProfileModel.Employment">
+        <MappingFragment StoreEntitySet="Employment">
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="JobProfile" ColumnName="JobProfile" />
+          <ScalarProperty Name="Desgignation" ColumnName="Desgignation" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EmpDetailID" ColumnName="EmpDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Get_Employment" FunctionName="ProfileModel.Store.Get_Employment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProfileModel.Get_Employment_Result">
+          <ScalarProperty Name="EmpDetailID" ColumnName="EmpDetailID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="Desgignation" ColumnName="Desgignation" />
+          <ScalarProperty Name="JobProfile" ColumnName="JobProfile" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="BloodGroups">
+      <EntityTypeMapping TypeName="ProfileModel.BloodGroup">
+        <MappingFragment StoreEntitySet="BloodGroup">
+          <ScalarProperty Name="BloodG" ColumnName="BloodG" />
+          <ScalarProperty Name="BloodGroupID" ColumnName="BloodGroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SPQuickSearch" FunctionName="ProfileModel.Store.SPQuickSearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProfileModel.SPQuickSearch_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="RAddress" ColumnName="RAddress" />
+          <ScalarProperty Name="MyAppID" ColumnName="MyAppID" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+          <ScalarProperty Name="BloodG" ColumnName="BloodG" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPAdvancedSearch" FunctionName="ProfileModel.Store.SPAdvancedSearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProfileModel.SPAdvancedSearch_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="RAddress" ColumnName="RAddress" />
+          <ScalarProperty Name="MyAppID" ColumnName="MyAppID" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MritalStatus" ColumnName="MritalStatus" />
+          <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+          <ScalarProperty Name="BloodG" ColumnName="BloodG" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="AdminLogins">
+      <EntityTypeMapping TypeName="ProfileModel.AdminLogin">
+        <MappingFragment StoreEntitySet="AdminLogin">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="ProfileModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="ProfileModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Get_Profile" FunctionName="ProfileModel.Store.Get_Profile">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProfileModel.Get_Profile_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="RAddress" ColumnName="RAddress" />
+          <ScalarProperty Name="MyAppID" ColumnName="MyAppID" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+          <ScalarProperty Name="BloodG" ColumnName="BloodG" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="UserRegistrations">
+      <EntityTypeMapping TypeName="ProfileModel.UserRegistration">
+        <MappingFragment StoreEntitySet="UserRegistration">
+          <ScalarProperty Name="ActivatedOn" ColumnName="ActivatedOn" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCastes">
+      <EntityTypeMapping TypeName="ProfileModel.SubCaste">
+        <MappingFragment StoreEntitySet="SubCaste">
+          <ScalarProperty Name="SubCasteName" ColumnName="SubCasteName" />
+          <ScalarProperty Name="SubCasteID" ColumnName="SubCasteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaritalStatus">
+      <EntityTypeMapping TypeName="ProfileModel.MaritalStatu">
+        <MappingFragment StoreEntitySet="MaritalStatus">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Complexions">
+      <EntityTypeMapping TypeName="ProfileModel.Complexion">
+        <MappingFragment StoreEntitySet="Complexion">
+          <ScalarProperty Name="Complexion1" ColumnName="Complexion" />
+          <ScalarProperty Name="ComplexionID" ColumnName="ComplexionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Heights">
+      <EntityTypeMapping TypeName="ProfileModel.Height">
+        <MappingFragment StoreEntitySet="Height">
+          <ScalarProperty Name="Height1" ColumnName="Height" />
+          <ScalarProperty Name="HeightID" ColumnName="HeightID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weights">
+      <EntityTypeMapping TypeName="ProfileModel.Weight">
+        <MappingFragment StoreEntitySet="Weight">
+          <ScalarProperty Name="Weight1" ColumnName="Weight" />
+          <ScalarProperty Name="WeightID" ColumnName="WeightID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="ProfileModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="MulGaon" ColumnName="MulGaon" />
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="MamaName" ColumnName="MamaName" />
+          <ScalarProperty Name="MamaPlace" ColumnName="MamaPlace" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="FatherOccupation" ColumnName="FatherOccupation" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="SalaryAnual" ColumnName="SalaryAnual" />
+          <ScalarProperty Name="ServiceDetail" ColumnName="ServiceDetail" />
+          <ScalarProperty Name="CareerID" ColumnName="CareerID" />
+          <ScalarProperty Name="EducationDetail" ColumnName="EducationDetail" />
+          <ScalarProperty Name="Gotra" ColumnName="Gotra" />
+          <ScalarProperty Name="BirthTime" ColumnName="BirthTime" />
+          <ScalarProperty Name="BirthName" ColumnName="BirthName" />
+          <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+          <ScalarProperty Name="TalukaID" ColumnName="TalukaID" />
+          <ScalarProperty Name="SpectacleID" ColumnName="SpectacleID" />
+          <ScalarProperty Name="PhysicallyChalengeID" ColumnName="PhysicallyChalengeID" />
+          <ScalarProperty Name="WeightID" ColumnName="WeightID" />
+          <ScalarProperty Name="HeightID" ColumnName="HeightID" />
+          <ScalarProperty Name="ComplexionID" ColumnName="ComplexionID" />
+          <ScalarProperty Name="SubCasteID" ColumnName="SubCasteID" />
+          <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+          <ScalarProperty Name="BloodGroupID" ColumnName="BloodGroupID" />
+          <ScalarProperty Name="MyAppID" ColumnName="MyAppID" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="RAddress" ColumnName="RAddress" />
+          <ScalarProperty Name="MritalStatus" ColumnName="MritalStatus" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Talukas">
+      <EntityTypeMapping TypeName="ProfileModel.Taluka">
+        <MappingFragment StoreEntitySet="Taluka">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="Taluka1" ColumnName="Taluka" />
+          <ScalarProperty Name="TalukaID" ColumnName="TalukaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="ProfileModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FeedBackId" ColumnName="FeedBackId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitorDeails">
+      <EntityTypeMapping TypeName="ProfileModel.VisitorDeail">
+        <MappingFragment StoreEntitySet="VisitorDeails">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ModifiedON" ColumnName="ModifiedON" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="AccessCount" ColumnName="AccessCount" />
+          <ScalarProperty Name="Metro_Code" ColumnName="Metro_Code" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Time_Zone" ColumnName="Time_Zone" />
+          <ScalarProperty Name="Zip_Code" ColumnName="Zip_Code" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region_Name" ColumnName="Region_Name" />
+          <ScalarProperty Name="Region_Code" ColumnName="Region_Code" />
+          <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+          <ScalarProperty Name="Country_Code" ColumnName="Country_Code" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OtherCasteUserRegistrations">
+      <EntityTypeMapping TypeName="ProfileModel.OtherCasteUserRegistration">
+        <MappingFragment StoreEntitySet="OtherCasteUserRegistration">
+          <ScalarProperty Name="ActivatedOn" ColumnName="ActivatedOn" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="SubCasteName" ColumnName="SubCasteName" />
+          <ScalarProperty Name="CasteName" ColumnName="CasteName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

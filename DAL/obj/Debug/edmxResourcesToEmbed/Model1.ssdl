@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProfileModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ProfileModelStoreContainer">
+    <EntitySet Name="AdminLogin" EntityType="ProfileModel.Store.AdminLogin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BloodGroup" EntityType="ProfileModel.Store.BloodGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="City" EntityType="ProfileModel.Store.City" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Complexion" EntityType="ProfileModel.Store.Complexion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Country" EntityType="ProfileModel.Store.Country" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Education" EntityType="ProfileModel.Store.Education" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EduDegree" EntityType="ProfileModel.Store.EduDegree" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EduType" EntityType="ProfileModel.Store.EduType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployerType" EntityType="ProfileModel.Store.EmployerType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employment" EntityType="ProfileModel.Store.Employment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Feedback" EntityType="ProfileModel.Store.Feedback" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Gender" EntityType="ProfileModel.Store.Gender" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Height" EntityType="ProfileModel.Store.Height" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Industry" EntityType="ProfileModel.Store.Industry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MaritalStatus" EntityType="ProfileModel.Store.MaritalStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OtherCasteUserRegistration" EntityType="ProfileModel.Store.OtherCasteUserRegistration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="State" EntityType="ProfileModel.Store.State" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubCaste" EntityType="ProfileModel.Store.SubCaste" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Taluka" EntityType="ProfileModel.Store.Taluka" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserProfile" EntityType="ProfileModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRegistration" EntityType="ProfileModel.Store.UserRegistration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VisitorDeails" EntityType="ProfileModel.Store.VisitorDeails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Weight" EntityType="ProfileModel.Store.Weight" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="AdminLogin">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="BloodGroup">
+    <Key>
+      <PropertyRef Name="BloodGroupID" />
+    </Key>
+    <Property Name="BloodGroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BloodG" Type="nvarchar" Nullable="false" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StateID" Type="int" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="70" />
+  </EntityType>
+  <EntityType Name="Complexion">
+    <Key>
+      <PropertyRef Name="ComplexionID" />
+    </Key>
+    <Property Name="ComplexionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Complexion" Type="nvarchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="nvarchar" Nullable="false" MaxLength="70" />
+  </EntityType>
+  <EntityType Name="Education">
+    <Key>
+      <PropertyRef Name="EduDetailID" />
+    </Key>
+    <Property Name="EduDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="EduTypeID" Type="int" Nullable="false" />
+    <Property Name="EducationDegreeID" Type="int" Nullable="false" />
+    <Property Name="University" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="PassYear" Type="int" Nullable="false" />
+    <Property Name="Marks" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EduDegree">
+    <Key>
+      <PropertyRef Name="EducationDegreeID" />
+    </Key>
+    <Property Name="EducationDegreeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DegreeName" Type="nvarchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="EduType">
+    <Key>
+      <PropertyRef Name="EduTypeID" />
+    </Key>
+    <Property Name="EduTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EduTypeName" Type="nvarchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="EmployerType">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Employment">
+    <Key>
+      <PropertyRef Name="EmpDetailID" />
+    </Key>
+    <Property Name="EmpDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="EmployerName" Type="nvarchar" Nullable="false" MaxLength="70" />
+    <Property Name="TypeID" Type="int" Nullable="false" />
+    <Property Name="Desgignation" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="JobProfile" Type="nvarchar" />
+    <Property Name="DateFrom" Type="datetime" />
+    <Property Name="DateTo" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedBackId" />
+    </Key>
+    <Property Name="FeedBackId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="70" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="GenderID" />
+    </Key>
+    <Property Name="GenderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="GenderName" Type="nvarchar" Nullable="false" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="Height">
+    <Key>
+      <PropertyRef Name="HeightID" />
+    </Key>
+    <Property Name="HeightID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Height" Type="nvarchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Industry">
+    <Key>
+      <PropertyRef Name="IndustryID" />
+    </Key>
+    <Property Name="IndustryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IndustryName" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="MaritalStatus">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="OtherCasteUserRegistration">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" Nullable="false" MaxLength="13" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+    <Property Name="CasteName" Type="nvarchar" MaxLength="150" />
+    <Property Name="SubCasteName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ActivatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SubCaste">
+    <Key>
+      <PropertyRef Name="SubCasteID" />
+    </Key>
+    <Property Name="SubCasteID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubCasteName" Type="nvarchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Taluka">
+    <Key>
+      <PropertyRef Name="TalukaID" />
+    </Key>
+    <Property Name="TalukaID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Taluka" Type="nvarchar" MaxLength="50" />
+    <Property Name="CityID" Type="int" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="WorkID" Type="int" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="MritalStatus" Type="int" />
+    <Property Name="RAddress" Type="nvarchar" MaxLength="150" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="200" />
+    <Property Name="MyAppID" Type="nvarchar" MaxLength="10" />
+    <Property Name="BloodGroupID" Type="int" />
+    <Property Name="DegreeID" Type="int" />
+    <Property Name="SubCasteID" Type="int" />
+    <Property Name="ComplexionID" Type="int" />
+    <Property Name="HeightID" Type="int" />
+    <Property Name="WeightID" Type="int" />
+    <Property Name="PhysicallyChalengeID" Type="int" />
+    <Property Name="SpectacleID" Type="int" />
+    <Property Name="TalukaID" Type="int" />
+    <Property Name="BirthPlace" Type="nvarchar" MaxLength="100" />
+    <Property Name="BirthName" Type="nvarchar" MaxLength="100" />
+    <Property Name="BirthTime" Type="nvarchar" MaxLength="100" />
+    <Property Name="Gotra" Type="nvarchar" MaxLength="100" />
+    <Property Name="EducationDetail" Type="nvarchar" MaxLength="100" />
+    <Property Name="CareerID" Type="int" />
+    <Property Name="ServiceDetail" Type="nvarchar" MaxLength="100" />
+    <Property Name="SalaryAnual" Type="nvarchar" MaxLength="100" />
+    <Property Name="FatherName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MotherName" Type="nvarchar" MaxLength="100" />
+    <Property Name="FatherOccupation" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="MamaPlace" Type="nvarchar" MaxLength="100" />
+    <Property Name="MamaName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="StateID" Type="int" />
+    <Property Name="DistrictID" Type="int" />
+    <Property Name="MulGaon" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="UserRegistration">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Mobile" Type="nvarchar" Nullable="false" MaxLength="13" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="StateID" Type="int" />
+    <Property Name="CityID" Type="int" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ActivatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="VisitorDeails">
+    <Key>
+      <PropertyRef Name="VisitorID" />
+    </Key>
+    <Property Name="VisitorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IP" Type="nvarchar" MaxLength="70" />
+    <Property Name="Country_Code" Type="nvarchar" MaxLength="70" />
+    <Property Name="Country_Name" Type="nvarchar" MaxLength="70" />
+    <Property Name="Region_Code" Type="nvarchar" MaxLength="70" />
+    <Property Name="Region_Name" Type="nvarchar" MaxLength="70" />
+    <Property Name="City" Type="nvarchar" MaxLength="70" />
+    <Property Name="Zip_Code" Type="nvarchar" MaxLength="70" />
+    <Property Name="Time_Zone" Type="nvarchar" MaxLength="70" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="70" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="70" />
+    <Property Name="Metro_Code" Type="nvarchar" MaxLength="70" />
+    <Property Name="AccessCount" Type="int" />
+    <Property Name="CreatedON" Type="datetime" />
+    <Property Name="ModifiedON" Type="datetime" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Weight">
+    <Key>
+      <PropertyRef Name="WeightID" />
+    </Key>
+    <Property Name="WeightID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Weight" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="Get_Education" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_Employment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_Profile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPAdvancedSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPQuickSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MyAppID" Type="varchar" Mode="In" />
+  </Function>
+</Schema>

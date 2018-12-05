@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "ViewProfile";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="row">
+    <span>Basic Information</span>
+    <hr style="background-color: orange" />
+    @Html.Action("ProfileInfo", "Profile")
+</div>
+<div class="row">
+    <span>Personality Information</span>
+    <hr style="background-color: orange" />
+    @Html.Action("ProfileInfo", "Profile")
+</div>
+
+<div class="row">
+    <span>Education & Occupation Information</span>
+    <hr style="background-color: orange" />
+    @Html.Action("ViewEducationReadOnly", "EducationDetails")
+
+</div>
+<div class="row">
+    <span>Residance Information</span>
+    <hr style="background-color: orange" />
+    @Html.Action("ViewEducationReadOnly", "EducationDetails")
+
+</div>
+<div class="row">
+    <span>Family Information</span>
+    <hr style="background-color: orange" />
+    @Html.Action("ViewEducationReadOnly", "EducationDetails")
+
+</div>
+<div class="row">
+    <span>Horoscope Information</span>
+    <hr style="background-color: orange" />
+    @Html.Action("ViewEducationReadOnly", "EducationDetails")
+
+</div>
+

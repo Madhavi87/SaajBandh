@@ -1,0 +1,63 @@
+﻿@model ProfileApp.Models.AdminLog
+@{
+    ViewBag.Title = "Admin Login";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+ .mylabel
+    {
+        color:black;
+    }
+
+    .col-md-12
+    {
+        margin-top:5px;
+        margin-bottom:5px;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-5" style="background-color:lightblue">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Admin Login</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label class="mylabel">UserName</label>
+                @Html.TextBoxFor(model=>model.UserName,new{@class="form-control"})
+               <span style="color:red">@Html.ValidationMessageFor(model=>model.UserName)</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label class="mylabel">Password</label>
+                @Html.PasswordFor(model=>model.Password,new{@class="form-control"})
+                <span style="color:red">@Html.ValidationMessageFor(model=>model.Password)</span><br />
+                <span style="color:red">@Html.ValidationMessageFor(model=>model.ErrMsg)</span>
+
+            </div>
+        </div>
+
+        
+         <div class="row">
+            <div class="col-md-6">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        
+             
+         </div>
+
+
+    </div>
+    <div class="col-md-5"></div>
+</div>
+}

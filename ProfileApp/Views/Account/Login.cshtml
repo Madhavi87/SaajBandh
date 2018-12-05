@@ -1,0 +1,118 @@
+﻿@model ProfileApp.Models.UserRegVM
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<style>
+    #MyAppId, label {
+        font-size: 12px !important;
+    }
+
+    .form-required {
+        color: red;
+    }
+
+    label {
+        font-size: 12px;
+    }
+</style>
+
+@*@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Login</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="mylabel">Email</label>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    <span style="color: red">@Html.ValidationMessageFor(model => model.Email)</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="mylabel">Password</label>
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                    <span style="color: red">@Html.ValidationMessageFor(model => model.Password)</span><br />
+                    <span style="color: red">@Html.ValidationMessageFor(model => model.ErrMsg)</span>
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+
+                <div class="col-md-6">
+                    @Html.ActionLink("Register", "Register")
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+}*@
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="grid_3">
+        <div class="container">
+            <div class="breadcrumb1">
+                <ul>
+                    <a href="/Home/Home"><i class="fa fa-home home_1"></i></a>
+                    <span class="divider">&nbsp;|&nbsp;</span>
+                    <li class="current-page">Login</li>
+                </ul>
+            </div>
+            <div class="services">
+                <div class="col-sm-4 login_left">
+                    <form>
+                        <div class="form-item form-type-textfield form-item-name">
+                            <label for="edit-name">User ID <span class="form-required" title="This field is required.">*</span></label>
+                            @* <input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">*@
+                            @Html.TextBoxFor(model => model.MyAppId, new { @placeholder = "Enter SaajBandh ID", @class = "form-text required", @size = "60", @maxlength = "60", @name = "name",@style="text-transform:uppercase" })
+                        </div>
+                        <div class="form-item form-type-password form-item-pass">
+                            <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+                            @* <input type="password" id="edit-pass" name="pass" size="60" maxlength="128" class="form-text required">*@
+                            @Html.PasswordFor(model => model.Password, new { @placeholder = "Enter Password", @class = "form-text required", @size = "60", @maxlength = "128", @name = "pass" })
+                        </div>
+                        <div class="form-actions">
+                            <input type="submit" id="edit-submit" name="op" value="Log in" class="btn_1 submit">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-8">
+                    <ul class="sharing">
+                        <li><a target="_blank" href="https://www.facebook.com/saajbandh" class="facebook" title="Facebook"><i style="background-color: forestgreen" class="fa fa-boxed fa-fw fa-thumbs-up"></i>Like Us</a></li>
+
+
+                        <li><a target="_blank" href="https://www.facebook.com/saajbandh.reshimgathi" class="facebook" title="Facebook"><i class="fa fa-boxed fa-fw fa-facebook"></i>Share on Facebook</a></li>
+                        <li><a target="_blank" href="https://twitter.com/saajbandh" class="twitter" title="Twitter"><i class="fa fa-boxed fa-fw fa-twitter"></i>Tweet</a></li>
+                        <li><a href="https://plus.google.com/u/0/114649830550512047865" class="google" title="Google"><i class="fa fa-boxed fa-fw fa-google-plus"></i>Share on Google+</a></li>
+                        <li><a target="_blank" href="https://www.linkedin.com/in/saajbandh-reshimgathi-b43619149/" class="linkedin" title="Linkedin"><i class="fa fa-boxed fa-fw fa-linkedin"></i>Share on LinkedIn</a></li>
+
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+                <span style="color: red">@Html.ValidationMessageFor(model => model.Password)</span><br />
+                <span style="color: red; font-size: 22px;">@Html.ValidationMessageFor(model => model.ErrMsg)</span>
+            </div>
+        </div>
+    </div>
+}

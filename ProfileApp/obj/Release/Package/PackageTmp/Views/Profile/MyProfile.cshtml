@@ -1,0 +1,102 @@
+﻿@model ProfileApp.Models.UserProfileVM
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_EventLayout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#DateOfBirth').datepicker({
+            dateFormat: 'dd-M-yy',
+            changeYear: true, changeMonth: true,
+          
+        });
+    });
+</script>
+
+<section class="content-header">
+    <h1>Create Profile</h1>
+</section>
+
+@using (@Html.BeginForm("MyProfile", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    
+    <div class="row" style="padding-left:15px;">
+        <div class="col-md-3">
+            <label class="headinglabel">Full Name</label>
+            @Html.TextBoxFor(model=>model.FirstName,new{@class="form-control"})
+        </div>
+
+        <div class="col-md-3">
+            <label class="headinglabel">Birth Date</label>
+            @Html.TextBoxFor(model=>model.DateOfBirth,new{@class="form-control"})
+           
+        </div>
+
+         <div class="col-md-3">
+            <label class="headinglabel">Mobile</label>
+             @Html.TextBoxFor(model=>model.Mobile,new{@class="form-control"})
+            
+        </div>
+    </div>
+    
+    <div class="row" style="padding-left:15px;margin-top:15px;">
+        <div class="col-md-3">
+            <label class="headinglabel">Industry</label>
+             @Html.DropDownListFor(model=>model.WorkID,new SelectList(@ViewBag.Work,"IndustryID","IndustryName"),"Select",new{@class="form-control"})
+        </div>
+
+        <div class="col-md-3">
+            <label class="headinglabel">Email</label><br />
+             @Html.DisplayFor(model=>model.Email)
+        </div>
+
+         <div class="col-md-3">
+            <label class="headinglabel">Gender</label>
+             @Html.DropDownListFor(model=>model.Gender,new SelectList(@ViewBag.Gender,"GenderID","GenderName"),"Select",new{@class="form-control"})
+        </div>
+       
+    </div>
+    
+     <div class="row" style="padding-left:15px;margin-top:15px">
+       
+         <div class="col-md-3">
+            <label class="headinglabel">Blood Group</label>
+             @Html.DropDownListFor(model=>model.BloodGroupID,new SelectList(@ViewBag.BloodGroup,"BloodGroupID","BloodG"),"Select",new{@class="form-control"})
+        </div>
+
+        <div class="col-md-3">
+            <label class="headinglabel">Marital Status</label>
+             @Html.DropDownListFor(model=>model.MritalStatus,new SelectList(@ViewBag.Status,"StatusID","Status"),"Select",new{@class="form-control"})
+        </div>
+
+         <div class="col-md-3">
+            <label class="headinglabel">City</label>
+             @Html.TextBoxFor(model=>model.City,new{@class="form-control"})
+        </div>
+
+
+          
+    </div>
+    
+     <div class="row" style="margin-top:15px;padding-left:15px">
+
+         <div class="col-md-3">
+            <label class="headinglabel">Address</label>
+             @Html.TextAreaFor(model=>model.RAddress,new{@class="form-control"})
+        </div>
+
+
+
+        <div class="col-md-3">
+            <input type="file" name="ImageFile" id="ImageFile"/>
+        </div>
+    </div>
+    
+    
+    <div class="row" style="margin-top:10px;padding-left:15px">
+        <div class="col-md-3">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+    </div>
+}

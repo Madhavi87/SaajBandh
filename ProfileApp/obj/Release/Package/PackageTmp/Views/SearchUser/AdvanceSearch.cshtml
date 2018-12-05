@@ -1,0 +1,139 @@
+﻿@model ProfileApp.Models.AdvSearch
+@{
+    ViewBag.Title = "AdvanceSearch";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<script src="~/Content/js/jQuery-2.2.0.min.js"></script>
+<script src="~/Content/js/jQuery-2.2.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#error").hide();
+
+        $("#submit-btn").click(function () {
+            var id = $("#txtappid").val();
+            var GenderID = $("#Gender option:selected").val();
+            var StatusID = $("#MaritalStatus option:selected").val();
+            var CityID = $("#CityID option:selected").val();
+            $.ajax({
+                url: "@Url.Action("SearchUserListByDetails", "SearchUser")",
+                data: { iGenderID: GenderID, iStatusID: StatusID, iCityID: CityID },
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+
+
+                    //var r = /\\u([\d\w]{4})/gi;
+                    //x = x.replace(r, function (match, grp) {
+                    //    return string.fromcharcode(parseint(grp, 16));
+
+                    //});
+
+                    $("#divSearchResult").html(data);
+                },
+                error: function () {
+                    alert("Failed! An Occur by your Transaction .");
+                }
+            });
+
+
+
+        });
+    });
+</script>
+ 
+
+
+@*<section class="content-header">
+    <h1>Advanced Search</h1>
+</section>*@
+
+@*<div class="row" style="padding-left: 15px;">
+    <div class="col-md-3">
+        <label class="headinglabel">Looking For</label>
+        @Html.DropDownListFor(model => model.Gender, new SelectList(@ViewBag.Genders, "GenderID", "GenderName"), "Select", new { @class = "form-control" })
+    </div>
+    <div class="col-md-3">
+        <label class="headinglabel">Marital Status</label>
+        @Html.DropDownListFor(model => model.MaritalStatus, new SelectList(@ViewBag.Status, "StatusID", "Status"), "Select", new { @class = "form-control" })
+    </div>
+    <div class="col-md-3">
+        <label class="headinglabel">City</label>
+        @Html.DropDownListFor(model => model.CityID, new SelectList(@ViewBag.Cities, "CityID", "CityName"), "Select", new { @class = "form-control" })
+    </div>
+</div>*@
+
+
+@*<div class="row" style="padding-left: 15px; margin-top: 15px">
+
+
+    <div class="col-md-3" style="padding-top: 25px;">
+        <input type="button" value="Search" id="btnSearch" class="btn btn-success" />
+    </div>
+
+</div>*@
+<div class="profile_search">
+        <div class="container wrap_1">
+            <form action="">
+                <div class="search_top">
+                    <div class="inline-block">
+                        <label class="gender_1">I am looking for :</label>
+                        <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                            @Html.DropDownListFor(model => model.Gender, new SelectList(@ViewBag.Genders, "GenderID", "GenderName"), "Select", new { })
+                        </div>
+                    </div>
+                    <div class="inline-block">
+                        <label class="gender_1">Marital Status :</label>
+                        <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                                    @Html.DropDownListFor(model => model.MaritalStatus, new SelectList(@ViewBag.Status, "StatusID", "Status"), "Select", new { @class = "" })
+
+                        </div>
+                    </div>
+                    <div class="inline-block">
+                        <label class="gender_1">District :</label>
+                        <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                                   @Html.DropDownListFor(model => model.CityID, new SelectList(@ViewBag.Cities, "CityID", "CityName"), "Select", new { @class = "" })
+
+                        </div>
+                    </div>
+                  @*  <div class="inline-block">
+                        <label class="gender_1">Taluka :</label>
+                        <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                            <select>
+                                <option value="">* Select Taluka</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Karnataka">Karnataka</option>
+                            </select>
+                        </div>
+                    </div>*@
+                </div>
+                @*  <div class="inline-block">
+                        <div class="age_box2" style="max-width: 220px;">
+                            <label class="gender_1">Age :</label>
+                            <input class="transparent" placeholder="From:" style="width: 34%;" type="text" value="">&nbsp;-&nbsp;<input class="transparent" placeholder="To:" style="width: 34%;" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="inline-block">
+                        <label class="gender_1">Status :</label>
+                        <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                            <select>
+                                <option value="">* Select Status</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="In a Relationship">Widowedp</option>
+                                <option value="It's Complicated">Divorcee</option>
+                            </select>
+                        </div>
+                    </div>*@
+                <div class="submit inline-block">
+                    <input id="submit-btn" class="hvr-wobble-vertical" type="button" value="Find Matches">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+<div class="row" style="padding-left: 15px; margin-top: 15px" id="divSearchResult">
+</div>
+

@@ -1,0 +1,52 @@
+﻿@model ProfileApp.Models.Photo
+@{
+    ViewBag.Title = "UploadPhoto";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<script type="text/javascript">
+    
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#target')
+                        .attr('src', e.target.result)
+                        .width(130)
+                        .height(150);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+   
+
+</script>
+
+<section class="content-header">
+    <h1>Create Profile</h1>
+</section>
+
+@using (@Html.BeginForm("UploadPhoto", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row" style="padding-left:15px;">
+        <div class="col-md-3" id="images">
+            <img src="" style="width:130px;height:150px" id="target" />
+        </div>
+
+        <div class="col-md-3">
+            <input type="file" name="ImageFile" id="ImageFile" onchange="readURL(this);"/>
+        </div>
+
+        
+    </div>
+    
+ 
+    
+    <div class="row" style="margin-top:10px;padding-left:15px">
+        <div class="col-md-3">
+            <input type="submit" value="Upload" class="btn btn-success" />
+        </div>
+    </div>
+}

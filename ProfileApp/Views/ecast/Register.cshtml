@@ -1,0 +1,150 @@
+﻿@model ProfileApp.Models.UserRegVM
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/OtherCastLayout.cshtml";
+}
+
+ 
+<style>
+    label, .field-validation-error {
+        font-size: 12px;
+    }
+
+    .form-required {
+        color: red;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Mobile").keyup(function () {
+            $("#Mobile").val(this.value.match(/[0-9]*/));
+        });
+
+        $('#BirthDateDisplay').datepicker({
+            dateFormat: 'dd-M-yy',
+            changeYear: true, changeMonth: true,
+            yearRange: '1970:1999'
+
+        });
+    });
+
+
+    function capitalize(textboxid, str) {
+        // string with alteast one character
+        if (str && str.length >= 1) {
+            var firstChar = str.charAt(0);
+            var remainingStr = str.slice(1); capitalize
+            str = firstChar.toUpperCase() + remainingStr;
+        }
+        document.getElementById(textboxid).value = str;
+    }
+
+
+</script>
+
+<style>
+    .mylabel {
+        color: black;
+    }
+
+    .col-md-12 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .registerpage .row {
+        margin-top: 20px;
+    }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="grid_3">
+        <div class="container registerpage">
+            <div style="text-align: center; font-size: 24px; font-weight: bold; color: red">Register</div>
+            <div class="services">
+                <div class="col-sm-12">
+                    <form>
+                      
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="edit-name">First Name <span class="form-required" title="This field is required.">*</span></label>
+                                @*<input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">*@
+                                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-text required", @placeholder = "Enter First Name", @name = "name", @value = "", @size = "60", @maxlength = "60", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                                <span style="color: red">@Html.ValidationMessageFor(model => model.FirstName)</span>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="edit-name">Middle Name <span class="form-required" title="This field is required.">*</span></label>
+                                @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-text required", @placeholder = "Enter Middle Name", @name = "name", @value = "", @size = "60", @maxlength = "60", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                                <span style="color: red">@Html.ValidationMessageFor(model => model.MiddleName)</span>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="edit-name">Last Name <span class="form-required" title="This field is required.">*</span></label>
+                                @Html.TextBoxFor(model => model.LastName, new { @class = "form-text required", @name = "name", @placeholder = "Enter Last Name", @value = "", @size = "60", @maxlength = "60", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                                <span style="color: red">@Html.ValidationMessageFor(model => model.LastName)</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="edit-pass">Email <span class="form-required" title="This field is required.">*</span></label>
+                                @Html.TextBoxFor(model => model.Email, new { @placeholder = "Enter Email", @class = "form-text required", @style = "text-transform:lowercase" })
+                                <span style="color: red">@Html.ValidationMessageFor(model => model.Email)</span>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="edit-pass">Mobile <span class="form-required" title="This field is required.">*</span></label>
+                                @Html.TextBoxFor(model => model.Mobile, new { @placeholder = "Enter Mobile", @class = "form-text required", @type = "text", @maxlength = "10" })
+                                <span style="color: red">@Html.ValidationMessageFor(model => model.Mobile)</span>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="headinglabel">Gender</label>
+                                @Html.DropDownListFor(model => model.Gender, new SelectList(@ViewBag.Genders, "GenderID", "GenderName"), "Select", new { @class = "form-control" })
+                                <span style="color: red">@Html.ValidationMessageFor(model => model.Gender)</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="edit-pass">Birth Date </label>
+                                @Html.TextBoxFor(model => model.BirthDateDisplay, new { @class = "form-control", @placeholder = "Select Birth Date" })
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="edit-pass">Caste <span class="form-required" title="This field is required.">*</span></label>
+                                @Html.DropDownListFor(model => model.Caste, new SelectList(@ViewBag.CasteList, "Value", "Text"), "Select", new { @class = "form-control" })
+                                <span style="color: red">@Html.ValidationMessageFor(model => model.Caste)</span>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="edit-pass">Sub Caste </label>
+                                @Html.TextBoxFor(model => model.SubCaste, new { @placeholder = "Enter Sub Caste", @class = "form-text" })
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                @Html.CheckBoxFor(model => model.TermsAndConditions, new { @class = " " })<span style="margin-left: 10px;">
+                                      I accept Terms and Conditions 
+                                </span>
+                                <br />
+                                <span style="color: red">@Html.ValidationMessageFor(model => model.TermsAndConditions)</span>
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <input type="submit" id="edit-submit" name="op" value="Submit" class="btn_1 submit">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+}
+
+
+

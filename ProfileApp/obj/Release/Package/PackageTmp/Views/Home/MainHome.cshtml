@@ -1,0 +1,245 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<style>
+    #morecasteModal a, #casteModal a {
+        color: #c32143;
+    }
+
+        #morecasteModal a:hover, #casteModal a:hover {
+            background-color: #de8312;
+            color: #fff !important;
+        }
+
+    .modal-title {
+        color: #FF007F;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#casteModal").modal('show');
+    });
+
+    function SelectCaste(castename) {
+        if (castename == "Maratha") {
+            $("#casteModal").modal('hide');
+        }
+        else if (castename == "MORECASTE") {
+            $("#casteModal").modal('hide');
+            $("#morecasteModal").modal('show');
+        }
+        else {
+            window.location.href = "/eCast/Home";
+        }
+    }
+
+    function PrevCaste() {
+        $("#casteModal").modal('show');
+        $("#morecasteModal").modal('hide');
+
+    }
+
+
+</script>
+
+<div id="casteModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" style="width: 70%">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                @*  <button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                <h4 class="modal-title">Select Caste</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8"><a class="aaratha" href="#" onclick="SelectCaste('Maratha')">Maratha/Kunbi/Deshmukh/96 Kuli</a></div>
+
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('LevaPatil')">Leva Patil</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('GujarPatil')">Gujar Patil</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Mali')">Rajput</a></div>
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Marwadi</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Gujarathi')">Gujarathi</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Bramhan')">Bramhan</a></div>
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Wani')">Wani</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Shimpi')">Shimpi</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Sonar')">Sonar</a></div>
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Di')">Dhobi</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Badgujar')">Badgujar</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Nhavi')">Nhavi</a></div>
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Kasar')">Kasar</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Kumbhar')">Kumbhar</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Teli')">Teli</a></div>
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Bhavsar')">Bhavsar</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Sutar')">Sutar</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Mali')">Mali</a></div>
+                    @*  <div class="col-sm-4"><a href="#" onclick="SelectCaste('Sutar')">More Caste..</a></div>*@
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-8"></div>
+
+                    <div class="col-sm-4" style="text-decoration: underline"><a href="#" onclick="SelectCaste('MORECASTE')">More Caste..</a></div>
+
+                </div>
+            </div>
+            @*  <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>*@
+        </div>
+
+    </div>
+</div>
+
+
+<div id="morecasteModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" style="width: 70%">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                @*  <button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                <h4 class="modal-title"><a href="#" onclick="PrevCaste()">Back</a></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Bari')">Bari</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Gurav')">Gurav</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Gurjar')">Manbhav</a></div>
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Lohar</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Thakur</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Gondhali</a></div>
+
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Gosavi</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Beldar</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Otaari</a></div>
+
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Gawali</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Ramoshi</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Banjara</a></div>
+
+                </div>
+
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Dhangar</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Vanjari</a></div>
+                    <div class="col-sm-4"><a href="#" onclick="SelectCaste('Marwadi')">Other Caste...</a></div>
+                </div>
+
+            </div>
+            @*  <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>*@
+        </div>
+
+    </div>
+</div>
+
+
+<div class="banner">
+
+    <div class="container">
+        <div class="banner_info">
+            <h3></h3>
+            @if (User.Identity.IsAuthenticated == false)
+            {
+                <span>
+                    <a href="/Account/Login" class="hvr-shutter-out-horizontal">Login</a> Or
+            <a href="/Account/Register" class="hvr-shutter-out-horizontal">Create your Profile</a>
+                </span>
+            }
+        </div>
+    </div>
+</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="profile_search">
+        <div class="container wrap_1">
+            <form action="">
+                <div class="search_top">
+                    <div class="inline-block">
+                        <label class="gender_1">I am looking for :</label>
+                        <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                            <select>
+                                <option value="">* Select</option>
+                                <option value="1">Boy</option>
+                                <option value="2">Girl</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="inline-block">
+                        <label class="gender_1">State :</label>
+                        <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                            <select>
+                                <option value="">* Select State</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Karnataka">Karnataka</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="inline-block">
+                        <label class="gender_1">District :</label>
+                        <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                            <select>
+                                <option value="">* Select District</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Karnataka">Karnataka</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="inline-block">
+                        <label class="gender_1">Taluka :</label>
+                        <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                            <select>
+                                <option value="">* Select Taluka</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Karnataka">Karnataka</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                @*  <div class="inline-block">
+                        <div class="age_box2" style="max-width: 220px;">
+                            <label class="gender_1">Age :</label>
+                            <input class="transparent" placeholder="From:" style="width: 34%;" type="text" value="">&nbsp;-&nbsp;<input class="transparent" placeholder="To:" style="width: 34%;" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="inline-block">
+                        <label class="gender_1">Status :</label>
+                        <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                            <select>
+                                <option value="">* Select Status</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="In a Relationship">Widowedp</option>
+                                <option value="It's Complicated">Divorcee</option>
+                            </select>
+                        </div>
+                    </div>*@
+                <div class="submit inline-block">
+                    <input id="submit-btn" class="hvr-wobble-vertical" type="submit" value="Find Matches">
+                </div>
+            </form>
+        </div>
+    </div>
+}
+

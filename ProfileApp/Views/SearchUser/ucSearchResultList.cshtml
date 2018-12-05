@@ -1,0 +1,40 @@
+﻿@model List<ProfileApp.Models.UserProfileVM>
+<div class="row" id="divProfiles">
+    <div class="col-md-12">
+        @foreach (var i in Model)
+        {
+            string Name = @i.FirstName + "  " + @i.MiddleName + "  " + @i.LastName;
+            <div class="col-md-4" style="margin-top: 10px; padding-right: 10px; padding-left: 10px;">
+
+                <div class="row" style="margin-left: 10px; text-align: center; margin-right: 10px; background-color: #c32143; color: #fff; line-height: 33px; height: 35px;">
+                    @Name
+                </div>
+                <div class="row" style="margin-left: 10px;">
+                    <div class="col-md-4" style="margin-bottom: 10px;">
+                        <img src="@i.ImagePath" style="width: 168px;
+    height: 246px;
+    border-radius: 48px;
+    
+    margin-top: 10px;" />
+                    </div>
+
+                </div>
+                <div class="row" style="margin-left: 10px;border-left:1px solid #c32143">
+                    <div class="col-md-4" style="margin-top: 4px; font-size: 12px; font-family: cursive;">
+                        Profile ID: @i.MyAppID
+                        <br />
+                        Birth Year:  @i.BirthYear
+                        <br />
+                        Education:@i.EducationDetail
+                    </div>
+                </div>
+                <div class="row" style="margin-left: 10px; margin-right: 10px; background-color: #c32143; color: #fff; text-align: center; line-height: 33px; height: 35px;">
+                    <input type="hidden" class="hfUserID" value="@i.UserID" />
+                    @Html.ActionLink("View Details", "ViewDetailsByID", new { iUserID = i.UserID }, new { @class = " btnSearch", @style = "color:#fff" })
+
+                </div>
+
+            </div>
+        }
+    </div>
+</div>

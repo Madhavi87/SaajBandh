@@ -1,0 +1,65 @@
+﻿@model ProfileApp.Models.ShowProfile
+
+@{
+    ViewBag.Title = "ucSearch";
+    Layout = null;
+}
+<style>
+    .bold
+    {
+        font-weight:bold;
+    }
+</style>
+
+    <div class="col-md-12 table-responsive">
+       
+        <table class="table table-responsive table-bordered">
+            <tbody>
+                <tr>
+                    <td rowspan="1" colspan="4">
+                        <img src="@Model.ImagePath" style="width:130px;height:150px" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="bold">Full Name</td>
+                    <td>@Model.FirstName</td>
+                    <td class="bold">Date Of Birth</td>
+                    <td>@Model.DateOfBirth</td>
+                </tr>
+
+                <tr>
+                    <td class="bold">Email</td>
+                    <td>@Model.Email</td>
+                    <td class="bold">Mobile</td>
+                    <td>@Model.Mobile</td>
+                </tr>
+
+                <tr>
+                    <td class="bold">Industry</td>
+                    <td>@Model.Work</td>
+                    <td class="bold">City</td>
+                    <td>@Model.City</td>
+                </tr>
+
+                <tr>
+                    <td class="bold">Gender</td>
+                    <td>@Model.Gender
+                    </td>
+                    <td class="bold">Marital Status</td>
+                    <td>@Model.MritalStatus</td>
+                </tr>
+
+
+                <tr>
+                    
+                    <td class="bold">Blood Group</td>
+                    <td>@Model.BloodGroup</td>
+
+                    <td class="bold">Address</td>
+                    <td>@Model.RAddress</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+

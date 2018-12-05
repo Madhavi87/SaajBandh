@@ -1,0 +1,495 @@
+﻿@model ProfileApp.Models.UserProfileVM
+
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<script type="text/javascript" src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+<!-- include your less or built css files  -->
+<link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+<style>
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+
+    label {
+        font-size: 14px;
+        color: #dacea0;
+        font-style: italic;
+        text-decoration: underline;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #c32143;
+        border-color: #c32143;
+    }
+
+        .btn-primary:hover {
+            background: #ffa417;
+        }
+
+    fieldset {
+        margin-top: 24px;
+        border: 1px solid #000;
+        padding-bottom: 21px;
+        padding-left: 10px;
+        padding-right: 12px;
+        background-color: #c32143;
+    }
+
+    legend {
+        width: 100%;
+        padding: 0;
+        color: #fff;
+        margin-bottom: 20px;
+        padding-top: 30px;
+        font-size: 21px;
+        line-height: inherit;
+        color: #fff;
+        font-weight: bold;
+        border: 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .form-control[disabled], .form-control[readonly]   {
+            background-color: transparent;
+    color: #fff;
+    border: 0px;
+    padding-left: :0px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+    }
+
+
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#FatherContactNo").keyup(function () {
+            $("#FatherContactNo").val(this.value.match(/[0-9]*/));
+        });
+        $(function () {
+            $('#BirthTime').datetimepicker({
+                format: 'LT'
+            });
+        });
+    
+
+      @*  function LoadViews() {
+            $.ajax({
+                url: "@Url.Action("ViewEducation", "EducationDetails")",
+                type: "GET",
+                dataType: "html",
+                success: function (data) {
+                    //$("#res").html(data.view);
+                    $("#divEdu").html(data);
+
+                },
+                error: function () {
+                    alert("Failed! Please try again.");
+                }
+            });
+
+            $.ajax({
+                url: "@Url.Action("ViewEmployment", "EmploymentInfo")",
+                type: "GET",
+                dataType: "html",
+                success: function (data) {
+                    //$("#res").html(data.view);
+                    $("#divEmp").html(data);
+
+                },
+                error: function () {
+                    alert("Failed! Please try again.");
+                }
+            });
+        }*@
+
+        //$('#DateOfBirth').datepicker({
+        //    dateFormat: 'dd-M-yy',
+        //    changeYear: true, changeMonth: true,
+        //    yearRange: '1970:' + (new Date).getFullYear()
+        //});
+
+        $('#BirthDateDisplay').datepicker({
+            dateFormat: 'dd-M-yy',
+            changeYear: true, changeMonth: true,
+            yearRange: '1970:1999'
+
+        }); 
+
+        $("#StateID").change(function () {
+            var state = $("#StateID option:selected").val();
+            $('#CityID').find('option').remove();
+            $.ajax({
+                type: "POST",
+                url: "/Account/GetCities",
+                datatype: "Json",
+                data: { id: state },
+                success: function (data) {
+                    $.each(data, function (index, value) {
+                        $('#CityID').append('<option value="' + value.CityID + '">' + value.CityName + '</option>');
+                    });
+
+                }
+            });
+        });
+
+        $("#CityID").change(function () {
+            var taluka = $("#CityID option:selected").val();
+            $('#TalukaID').find('option').remove();
+            //.end()
+            //.append('<option value="whatever">text</option>')
+            //.val('whatever') 
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/GetTalukas",
+                datatype: "Json",
+                data: { id: taluka },
+                success: function (data) {
+                    $.each(data, function (index, value) {
+                        $('#TalukaID').append('<option value="' + value.TalukaID + '">' + value.Taluka1 + '</option>');
+                    });
+
+                }
+            });
+        });
+
+
+    });
+    function capitalize(textboxid, str) {
+        // string with alteast one character
+        if (str && str.length >= 1) {
+            var firstChar = str.charAt(0);
+            var remainingStr = str.slice(1); capitalize
+            str = firstChar.toUpperCase() + remainingStr;
+        }
+        document.getElementById(textboxid).value = str;
+    }
+
+
+</script>
+
+
+
+@using (@Html.BeginForm("EditProfile", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="exTab1" class="container">
+        <fieldset>
+            <legend>Basic Information</legend>
+            <div class="row" style="padding-left: 15px;">
+
+
+
+                <div class="col-md-3" style="position: absolute; left: 72%; top: 35%; height: 239px;">
+                    <label class="headinglabel"></label>
+
+                    <img id="blah" src="@Model.ImagePath" alt="" style="height: 522px; width: 261px;" />
+                    <input type='file' name="ImageFile" id="imgInp" />
+                </div>
+            </div>
+            <div class="row" style="padding-left: 15px; margin-top: 15px;">
+                <div class="col-md-3">
+                    <label class="headinglabel">MyAppID</label>
+                    @Html.TextBoxFor(model => model.MyAppID, new { @readonly = "readonly", @class = "form-control" })
+
+                </div>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+
+            <div class="row" style="padding-left: 15px;">
+                @Html.HiddenFor(model => model.UserID)
+                @Html.HiddenFor(model => model.MyAppID)
+                <div class="col-md-3">
+                    <label class="headinglabel">First Name</label>
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @readonly = "readonly", @placeholder = "Enter First Name", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                </div>
+
+                <div class="col-md-3">
+                    <label class="headinglabel">Middle Name</label>
+                    @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", @readonly = "readonly", @placeholder = "Enter Middle Name", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Last Name</label>
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @readonly = "readonly", @placeholder = "Entter Last Name", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                </div>
+            </div>
+            <div class="row" style="padding-left: 15px; margin-top: 15px;">
+                <div class="col-md-3">
+                    <label class="headinglabel">Email</label>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly", @placeholder = "Enter Email" })
+
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Marital Status</label>
+
+                    @Html.DropDownListFor(model => model.MaritalStatusID, new SelectList(@ViewBag.MaritalStatus, "StatusID", "Status"), "Select", new { @class = "form-control" })
+
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Birth Date</label>
+                    @Html.TextBoxFor(model => model.BirthDateDisplay, new { @class = "form-control", @placeholder = "Select Birth Date" })
+
+                </div>
+            </div>
+            <div class="row" style="padding-left: 15px; margin-top: 15px;">
+
+                <div class="col-md-3">
+                    <label class="headinglabel">Birth Name</label>
+                    @Html.TextBoxFor(model => model.BirthName, new { @class = "form-control", @placeholder = "Enter Birth Name" , @onkeyup = "javascript:capitalize(this.id, this.value);"})
+
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Birth Place</label>
+                    @Html.TextBoxFor(model => model.BirthPlace, new { @class = "form-control", @placeholder = "Enter Birth Place", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Birth Time</label>
+                    @Html.TextBoxFor(model => model.BirthTime, new { @class = "form-control", @placeholder = "HH:MM:SS (24 Hour)" })
+
+
+                </div>
+            </div>
+            <div class="row" style="padding-left: 15px; margin-top: 15px;">
+
+                <div class="col-md-3">
+                    <label class="headinglabel">Gotra</label>
+                    @Html.TextBoxFor(model => model.Gotra, new { @class = "form-control", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Sub Caste</label>
+                    @Html.DropDownListFor(model => model.SubCasteID, new SelectList(@ViewBag.SubCastes, "SubCasteID", "SubCasteName"), "Select", new { @class = "form-control" })
+
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+
+            <div class="row" style="padding-left: 15px; margin-top: 15px">
+                <div class="col-md-3">
+                    <label class="headinglabel">Complexion</label>
+                    @Html.DropDownListFor(model => model.ComplexionID, new SelectList(@ViewBag.ComplexionList, "ComplexionID", "Complexion1"), "Select", new { @class = "form-control" })
+                </div>
+
+
+                <div class="col-md-3">
+                    <label class="headinglabel">Height</label>
+                    @Html.DropDownListFor(model => model.HeightID, new SelectList(@ViewBag.HeightList, "HeightID", "Height1"), "Select", new { @class = "form-control" })
+
+                </div>
+
+                <div class="col-md-3">
+                    <label class="mylabel">Weight</label>
+                    @Html.DropDownListFor(model => model.WeightID, new SelectList(@ViewBag.WeightList, "WeightID", "Weight1"), "Select", new { @class = "form-control" })
+
+                </div>
+
+            </div>
+            <div class="row" style="padding-left: 15px; margin-top: 15px">
+                <div class="col-md-3">
+                    <label class="headinglabel">Physically Challenged?</label>
+                    @Html.DropDownListFor(model => model.PhysicalChalengeID, new SelectList(@ViewBag.GenericList, "ID", "Value"), "Select", new { @class = "form-control" })
+                </div>
+
+
+                <div class="col-md-3">
+                    <label class="headinglabel">Blood Group</label>
+                    @Html.DropDownListFor(model => model.BloodGroupID, new SelectList(@ViewBag.BloodGroup, "BloodGroupID", "BloodG"), "Select", new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-3">
+                    <label class="mylabel">Spectacle</label>
+                    @Html.DropDownListFor(model => model.SpectacleID, new SelectList(@ViewBag.GenericList, "ID", "Value"), new { @class = "form-control" })
+
+                </div>
+
+            </div>
+
+            <div class="row" style="padding-left: 15px; margin-top: 15px">
+                <div class="col-md-3">
+                    <label class="headinglabel">Address</label>
+                    @Html.TextBoxFor(model => model.RAddress, new { @class = "form-control", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                </div>
+
+
+                <div class="col-md-3">
+                    <label class="headinglabel">Mul Gaon</label>
+                    @Html.TextBoxFor(model => model.MulGaon, new { @class = "form-control", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                </div>
+
+                <div class="col-md-3">
+                    <label class="mylabel">States</label>
+                    @Html.DropDownListFor(model => model.StateID, new SelectList(@ViewBag.States, "StateID", "StateName"), new { @class = "form-control" })
+
+                </div>
+
+            </div>
+            <div class="row" style="padding-left: 15px; margin-top: 15px">
+                <div class="col-md-3">
+                    <label class="headinglabel">District</label>
+                    @Html.DropDownListFor(model => model.CityID, new SelectList(@ViewBag.Cities, "CityID", "CityName"), new { @class = "form-control" })
+                </div>
+
+
+                <div class="col-md-3">
+                    <label class="headinglabel">Taluka</label>
+                    @Html.DropDownListFor(model => model.TalukaID, new SelectList(@ViewBag.Talukas, "TalukaID", "Taluka1"), new { @class = "form-control" })
+
+                </div>
+
+                <div class="col-md-3">
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Carrer and Eductional Information</legend>
+            <div class="row" style="margin-top: 15px; padding-left: 15px">
+                <div class="col-md-3">
+                    <label class="mylabel">School/Degree</label>
+                    @Html.DropDownListFor(model => model.SchoolID, new SelectList(@ViewBag.DegreeList, "EducationDegreeID", "DegreeName"), new { @class = "form-control" })
+
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Education Detail</label>
+                    @Html.TextBoxFor(model => model.EducationDetail, new { @class = "form-control", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 15px; padding-left: 15px">
+                <div class="col-md-3">
+                    <label class="mylabel">Service/Business</label>
+                    @Html.DropDownListFor(model => model.ServiceBusinessID, new SelectList(@ViewBag.CarrerTypeList, "ID", "Value"), new { @class = "form-control" })
+
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Service Detail</label>
+                    @Html.TextBoxFor(model => model.ServiceDetail, new { @class = "form-control" , @onkeyup = "javascript:capitalize(this.id, this.value);"})
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Salary</label>
+                    @Html.TextBoxFor(model => model.SalaryAnual, new { @class = "form-control" })
+
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Family Information</legend>
+            <div class="row" style="padding-left: 15px; margin-top: 15px">
+                <div class="col-md-3">
+                    <label class="headinglabel">Father</label>
+                    @Html.TextBoxFor(model => model.FatherName, new { @class = "form-control" , @onkeyup = "javascript:capitalize(this.id, this.value);"})
+                </div>
+
+
+                <div class="col-md-3">
+                    <label class="headinglabel">Mother</label>
+                    @Html.TextBoxFor(model => model.MotherName, new { @class = "form-control", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                </div>
+
+                <div class="col-md-3">
+                </div>
+
+            </div>
+            <div class="row" style="padding-left: 15px; margin-top: 15px">
+                <div class="col-md-3">
+                    <label class="headinglabel">Father Occupation</label>
+                    @Html.TextBoxFor(model => model.FatherOccupation, new { @class = "form-control" , @onkeyup = "javascript:capitalize(this.id, this.value);"})
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Parent Contact No</label>
+                    @Html.TextBoxFor(model => model.FatherContactNo, new { @class = "form-control",   @type = "text" , @maxlength = "10"  })
+                </div>
+
+                <div class="col-md-3">
+                </div>
+
+            </div>
+            <div class="row" style="padding-left: 15px; margin-top: 15px">
+                <div class="col-md-3">
+                    <label class="headinglabel">Mama Name</label>
+                    @Html.TextBoxFor(model => model.MamaSurName, new { @class = "form-control", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Mama Place</label>
+                    @Html.TextBoxFor(model => model.MamaPlace, new { @class = "form-control", @onkeyup = "javascript:capitalize(this.id, this.value);" })
+                </div>
+
+                <div class="col-md-3">
+                </div>
+
+            </div>
+
+
+        </fieldset>
+        <div class="row" style="padding-left: 15px; margin-top: 15px">
+            <div class="col-md-3">
+                <input type="submit" value="Update Profile" class="btn btn-primary" />
+            </div>
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+        </div>
+        <div class="" style="position: absolute; top: 22%; left: 86%;">
+            <div class="">
+                <input type="submit" value="Update Profile" class="btn btn-primary" />
+            </div>
+            <div class="col-md-9">
+            </div>
+        </div>
+
+    </div>
+}
+
+<script type="text/javascript">
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imgInp").change(function () {
+        readURL(this);
+    });
+</script>

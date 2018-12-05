@@ -1,0 +1,176 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Saaj Bandh|Saaj Bandh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Saaj Bandh Reshimgathi,Reshimgathi,Saaj Bandh,Saajbandh.com" />
+
+
+    @* <script src="/Content/js/jquery.js"></script>*@
+    <script src="~/Content/js/jQuery-2.2.0.min.js"></script>
+    <link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="/Content/js/jquery-ui.js"></script>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    @* <script src="~/Content/datetimepicker/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"></script>
+    <link href="~/Content/datetimepicker/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.css" rel="stylesheet" />*@
+    <!-- Custom CSS -->
+    <link href="/Content/css/sb-admin.css" rel="stylesheet">
+    <link href="/Content/css/style.css" rel='stylesheet' type='text/css' />
+
+    <!-- Morris Charts CSS -->
+    @*<link href="/Content/css/plugins/morris.css" rel="stylesheet">*@
+
+    <!-- Custom Fonts -->
+    <link href="/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        .tabaction {
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+
+
+    @*<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />*@
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    @*  <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>*@
+    <!-- Custom Theme files -->
+    @* <link href="css/style.css" rel='stylesheet' type='text/css' />*@
+    @*  <link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>*@
+    <!----font-Awesome----->
+    @* <link href="css/font-awesome.css" rel="stylesheet">*@
+    <!----font-Awesome----->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+    <!-- ============================  Navigation Start =========================== -->
+    <div class="navbar navbar-inverse-blue navbar">
+        <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
+        <div class="navbar-inner">
+            <div class="container">
+                @*  <div class="navigation">
+                    <nav id="colorNav">
+                        <ul>
+                            <li class="green">
+                                <a href="#" class="icon-home"></a>
+                                <ul>
+                                    <li><a href="/Account/Login">Login</a></li>
+                                    <li><a href="/Account/Register">Register</a></li>
+                                    <li><a href="/Account/Logout">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>*@
+
+                <a class="brand" href="/Home/Home">
+                    @* <img src="../Content/images/logo.png" style="height: 40px; width: 337px" />*@
+                    <span style="color: white; font-size: 30px; font-style: italic;">साजबंध रेशीमगाठी </span>
+                </a>
+                <nav class="navbar nav_bottom" role="navigation">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header nav_2">
+                        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"></a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                        <ul class="nav navbar-nav nav_1">
+
+                            @if (Convert.ToString(Session["AdminUserID"]) != "")
+                            {
+                                <li><a href="/AdminUser/ActiveUsers">ActiveUsers</a></li>
+                                <li><a href="/AdminUser/DeActiveUsers">DeActiveUsers</a></li>
+                                  
+                                <li><a href="/AdminUser/Logout">Logout</a></li>
+
+                            }
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+                <!-- end pull-right -->
+                <div class="clearfix"></div>
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end navbar-inner -->
+    </div>
+    <!-- end navbar-inverse-blue -->
+    <!-- ============================  Navigation End ============================ -->
+    @RenderBody()
+
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-4 col_2">
+                @*    <h4>About Us</h4>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."</p>*@
+                @*   <h4>Help & Feedback</h4>
+                <ul class="footer_links">
+
+                    <li><a href="/Account/Feedback">Feedback</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                </ul>*@
+            </div>
+            <div class="col-md-2 col_2">
+                @* <h4>Contact</h4>
+                <ul class="footer_links">
+                    <li>+91 9421075089</li>
+                    <li>info@saajbandh.com</li>
+                </ul>*@
+                <h4>Social</h4>
+                <ul class="footer_social">
+                    <li><a target="_blank" href="https://www.facebook.com/saajbandh.reshimgathi"><i class="fa fa-facebook fa1"></i></a></li>
+                    <li><a target="_blank" href="https://twitter.com/saajbandh"><i class="fa fa-twitter fa1"></i></a></li>
+                    <li><a href="https://plus.google.com/u/0/114649830550512047865"><i class="fa fa-google-plus fa1"></i></a></li>
+                    <li><a target="_blank" href="https://www.linkedin.com/in/saajbandh-reshimgathi-b43619149/"><i class="fa fa-linkedin fa1"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col_2">
+            </div>
+            <div class="col-md-2 col_2">
+            </div>
+            <div class="clearfix"></div>
+            <div class="copy">
+                <p>Saajbandh Reshimgathi . All Rights Reserved @DateTime.Now.Year  | Design by <a href="http://saajbandh.com" target="_blank">Saajbandh Reshimgathi</a> </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

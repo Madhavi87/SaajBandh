@@ -1,0 +1,66 @@
+﻿@model List<ProfileApp.Models.UserProfileVM>
+@{
+    ViewBag.Title = "DeActive Users";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+    table th {
+        background-color: #cc0033;
+        color: white;
+        font-weight: bold;
+    }
+</style>
+
+<section class="content-header">
+    <h1>DeActive Users</h1>
+</section>
+
+@using (@Html.BeginForm("DeActiveUsers", "AdminUser", FormMethod.Post))
+{
+    <div class="row" style="padding-left: 15px;">
+        <div class="col-md-12">
+            <table class="table table-responsive table-bordered">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Member Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>User Id</th>
+                        <th>Password</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Html.CheckBoxFor(model => Model[i].IsActive)</td>
+                            <td>@Html.DisplayFor(model => Model[i].FirstName)&nbsp;
+                                @Html.DisplayFor(model => Model[i].LastName)
+                                @Html.HiddenFor(model => Model[i].UserID)
+                            </td>
+                            <td>@Html.DisplayFor(model => Model[i].Email)</td>
+                            <td>@Html.DisplayFor(model => Model[i].Mobile)</td>
+                            <td>@Html.DisplayFor(model => Model[i].MyAppID)</td>
+                            <td>@Html.DisplayFor(model => Model[i].Password)</td>
+                            <td>@Html.ActionLink("Delete", "DeleteUser", new { iUserID = Model[i].UserID })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+    
+    
+    <div class="row" style="margin-top: 10px; padding-left: 15px">
+        <div class="col-md-3">
+            <input type="submit" value="Activate" class="btn btn-success" />
+        </div>
+    </div>
+}
+

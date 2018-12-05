@@ -1,0 +1,1041 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProfileModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ProfileModelStoreContainer">
+          <EntitySet Name="AdminLogin" EntityType="ProfileModel.Store.AdminLogin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BloodGroup" EntityType="ProfileModel.Store.BloodGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="City" EntityType="ProfileModel.Store.City" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Complexion" EntityType="ProfileModel.Store.Complexion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Country" EntityType="ProfileModel.Store.Country" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Education" EntityType="ProfileModel.Store.Education" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EduDegree" EntityType="ProfileModel.Store.EduDegree" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EduType" EntityType="ProfileModel.Store.EduType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployerType" EntityType="ProfileModel.Store.EmployerType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employment" EntityType="ProfileModel.Store.Employment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Feedback" EntityType="ProfileModel.Store.Feedback" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Gender" EntityType="ProfileModel.Store.Gender" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Height" EntityType="ProfileModel.Store.Height" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Industry" EntityType="ProfileModel.Store.Industry" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MaritalStatus" EntityType="ProfileModel.Store.MaritalStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OtherCasteUserRegistration" EntityType="ProfileModel.Store.OtherCasteUserRegistration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="State" EntityType="ProfileModel.Store.State" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubCaste" EntityType="ProfileModel.Store.SubCaste" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Taluka" EntityType="ProfileModel.Store.Taluka" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="ProfileModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRegistration" EntityType="ProfileModel.Store.UserRegistration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VisitorDeails" EntityType="ProfileModel.Store.VisitorDeails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Weight" EntityType="ProfileModel.Store.Weight" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="AdminLogin">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="BloodGroup">
+          <Key>
+            <PropertyRef Name="BloodGroupID" />
+          </Key>
+          <Property Name="BloodGroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BloodG" Type="nvarchar" Nullable="false" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="Complexion">
+          <Key>
+            <PropertyRef Name="ComplexionID" />
+          </Key>
+          <Property Name="ComplexionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Complexion" Type="nvarchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="nvarchar" Nullable="false" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="EduDetailID" />
+          </Key>
+          <Property Name="EduDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="EduTypeID" Type="int" Nullable="false" />
+          <Property Name="EducationDegreeID" Type="int" Nullable="false" />
+          <Property Name="University" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="PassYear" Type="int" Nullable="false" />
+          <Property Name="Marks" Type="decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EduDegree">
+          <Key>
+            <PropertyRef Name="EducationDegreeID" />
+          </Key>
+          <Property Name="EducationDegreeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DegreeName" Type="nvarchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="EduType">
+          <Key>
+            <PropertyRef Name="EduTypeID" />
+          </Key>
+          <Property Name="EduTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EduTypeName" Type="nvarchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="EmployerType">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Employment">
+          <Key>
+            <PropertyRef Name="EmpDetailID" />
+          </Key>
+          <Property Name="EmpDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="EmployerName" Type="nvarchar" Nullable="false" MaxLength="70" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="Desgignation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="JobProfile" Type="nvarchar" />
+          <Property Name="DateFrom" Type="datetime" />
+          <Property Name="DateTo" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedBackId" />
+          </Key>
+          <Property Name="FeedBackId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="70" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GenderName" Type="nvarchar" Nullable="false" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="Height">
+          <Key>
+            <PropertyRef Name="HeightID" />
+          </Key>
+          <Property Name="HeightID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Height" Type="nvarchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Industry">
+          <Key>
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="IndustryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IndustryName" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="MaritalStatus">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="OtherCasteUserRegistration">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CasteName" Type="nvarchar" MaxLength="150" />
+          <Property Name="SubCasteName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ActivatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SubCaste">
+          <Key>
+            <PropertyRef Name="SubCasteID" />
+          </Key>
+          <Property Name="SubCasteID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubCasteName" Type="nvarchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Taluka">
+          <Key>
+            <PropertyRef Name="TalukaID" />
+          </Key>
+          <Property Name="TalukaID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Taluka" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="WorkID" Type="int" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="MritalStatus" Type="int" />
+          <Property Name="RAddress" Type="nvarchar" MaxLength="150" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="200" />
+          <Property Name="MyAppID" Type="nvarchar" MaxLength="10" />
+          <Property Name="BloodGroupID" Type="int" />
+          <Property Name="DegreeID" Type="int" />
+          <Property Name="SubCasteID" Type="int" />
+          <Property Name="ComplexionID" Type="int" />
+          <Property Name="HeightID" Type="int" />
+          <Property Name="WeightID" Type="int" />
+          <Property Name="PhysicallyChalengeID" Type="int" />
+          <Property Name="SpectacleID" Type="int" />
+          <Property Name="TalukaID" Type="int" />
+          <Property Name="BirthPlace" Type="nvarchar" MaxLength="100" />
+          <Property Name="BirthName" Type="nvarchar" MaxLength="100" />
+          <Property Name="BirthTime" Type="nvarchar" MaxLength="100" />
+          <Property Name="Gotra" Type="nvarchar" MaxLength="100" />
+          <Property Name="EducationDetail" Type="nvarchar" MaxLength="100" />
+          <Property Name="CareerID" Type="int" />
+          <Property Name="ServiceDetail" Type="nvarchar" MaxLength="100" />
+          <Property Name="SalaryAnual" Type="nvarchar" MaxLength="100" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="100" />
+          <Property Name="MotherName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FatherOccupation" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="MamaPlace" Type="nvarchar" MaxLength="100" />
+          <Property Name="MamaName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="DistrictID" Type="int" />
+          <Property Name="MulGaon" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="UserRegistration">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Mobile" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ActivatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="VisitorDeails">
+          <Key>
+            <PropertyRef Name="VisitorID" />
+          </Key>
+          <Property Name="VisitorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="nvarchar" MaxLength="70" />
+          <Property Name="Country_Code" Type="nvarchar" MaxLength="70" />
+          <Property Name="Country_Name" Type="nvarchar" MaxLength="70" />
+          <Property Name="Region_Code" Type="nvarchar" MaxLength="70" />
+          <Property Name="Region_Name" Type="nvarchar" MaxLength="70" />
+          <Property Name="City" Type="nvarchar" MaxLength="70" />
+          <Property Name="Zip_Code" Type="nvarchar" MaxLength="70" />
+          <Property Name="Time_Zone" Type="nvarchar" MaxLength="70" />
+          <Property Name="Latitude" Type="nvarchar" MaxLength="70" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="70" />
+          <Property Name="Metro_Code" Type="nvarchar" MaxLength="70" />
+          <Property Name="AccessCount" Type="int" />
+          <Property Name="CreatedON" Type="datetime" />
+          <Property Name="ModifiedON" Type="datetime" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Weight">
+          <Key>
+            <PropertyRef Name="WeightID" />
+          </Key>
+          <Property Name="WeightID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Weight" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="Get_Education" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Get_Employment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Get_Profile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SPAdvancedSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SPQuickSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MyAppID" Type="varchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProfileModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ProfileEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Countries" EntityType="ProfileModel.Country" />
+          <EntitySet Name="Genders" EntityType="ProfileModel.Gender" />
+          <EntitySet Name="Industries" EntityType="ProfileModel.Industry" />
+          <EntitySet Name="Educations" EntityType="ProfileModel.Education" />
+          <EntitySet Name="EduDegrees" EntityType="ProfileModel.EduDegree" />
+          <EntitySet Name="EduTypes" EntityType="ProfileModel.EduType" />
+          <FunctionImport Name="Get_Education" ReturnType="Collection(ProfileModel.Get_Education_Result)">
+          <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="EmployerTypes" EntityType="ProfileModel.EmployerType" />
+          <EntitySet Name="Employments" EntityType="ProfileModel.Employment" />
+          <FunctionImport Name="Get_Employment" ReturnType="Collection(ProfileModel.Get_Employment_Result)">
+          <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="BloodGroups" EntityType="ProfileModel.BloodGroup" />
+          <FunctionImport Name="SPQuickSearch" ReturnType="Collection(ProfileModel.SPQuickSearch_Result)">
+          <Parameter Name="MyAppID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SPAdvancedSearch" ReturnType="Collection(ProfileModel.SPAdvancedSearch_Result)" />
+          <EntitySet Name="AdminLogins" EntityType="ProfileModel.AdminLogin" />
+          <EntitySet Name="Cities" EntityType="ProfileModel.City" />
+          <EntitySet Name="States" EntityType="ProfileModel.State" />
+          <FunctionImport Name="Get_Profile" ReturnType="Collection(ProfileModel.Get_Profile_Result)">
+          <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="UserRegistrations" EntityType="ProfileModel.UserRegistration" />
+          <EntitySet Name="SubCastes" EntityType="ProfileModel.SubCaste" />
+          <EntitySet Name="MaritalStatus" EntityType="ProfileModel.MaritalStatu" />
+          <EntitySet Name="Complexions" EntityType="ProfileModel.Complexion" />
+          <EntitySet Name="Heights" EntityType="ProfileModel.Height" />
+          <EntitySet Name="Weights" EntityType="ProfileModel.Weight" />
+          <EntitySet Name="UserProfiles" EntityType="ProfileModel.UserProfile" />
+          <EntitySet Name="Talukas" EntityType="ProfileModel.Taluka" />
+          <EntitySet Name="Feedbacks" EntityType="ProfileModel.Feedback" />
+          <EntitySet Name="VisitorDeails" EntityType="ProfileModel.VisitorDeail" />
+          <EntitySet Name="OtherCasteUserRegistrations" EntityType="ProfileModel.OtherCasteUserRegistration" />
+        </EntityContainer>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="70" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Type="Int32" Name="GenderID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GenderName" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Industry">
+          <Key>
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Type="Int32" Name="IndustryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="IndustryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="EduDetailID" />
+          </Key>
+          <Property Type="Int32" Name="EduDetailID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="EduTypeID" Nullable="false" />
+          <Property Type="Int32" Name="EducationDegreeID" Nullable="false" />
+          <Property Type="String" Name="University" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PassYear" Nullable="false" />
+          <Property Type="Decimal" Name="Marks" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="EduDegree">
+          <Key>
+            <PropertyRef Name="EducationDegreeID" />
+          </Key>
+          <Property Type="Int32" Name="EducationDegreeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DegreeName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EduType">
+          <Key>
+            <PropertyRef Name="EduTypeID" />
+          </Key>
+          <Property Type="Int32" Name="EduTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EduTypeName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="Get_Education_Result">
+          <Property Type="Int32" Name="EduDetailID" Nullable="false" />
+          <Property Type="String" Name="University" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="PassYear" Nullable="false" />
+          <Property Type="Decimal" Name="Marks" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="EduTypeName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="DegreeName" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <EntityType Name="EmployerType">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Type="Int32" Name="TypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Employment">
+          <Key>
+            <PropertyRef Name="EmpDetailID" />
+          </Key>
+          <Property Type="Int32" Name="EmpDetailID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="EmployerName" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TypeID" Nullable="false" />
+          <Property Type="String" Name="Desgignation" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="JobProfile" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateFrom" Precision="3" />
+          <Property Type="DateTime" Name="DateTo" Precision="3" />
+        </EntityType>
+        <ComplexType Name="Get_Employment_Result">
+          <Property Type="Int32" Name="EmpDetailID" Nullable="false" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="EmployerName" Nullable="false" MaxLength="70" />
+          <Property Type="Int32" Name="TypeID" Nullable="false" />
+          <Property Type="String" Name="Desgignation" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="JobProfile" Nullable="true" MaxLength="4000" />
+          <Property Type="DateTime" Name="DateFrom" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="DateTo" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <EntityType Name="BloodGroup">
+          <Key>
+            <PropertyRef Name="BloodGroupID" />
+          </Key>
+          <Property Type="Int32" Name="BloodGroupID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BloodG" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="SPQuickSearch_Result">
+          <Property Type="Int32" Name="UserID" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Mobile" Nullable="true" MaxLength="13" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="23" />
+          <Property Type="String" Name="RAddress" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="MyAppID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="GenderName" Nullable="true" MaxLength="7" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="IndustryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="BloodG" Nullable="true" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="SPAdvancedSearch_Result">
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="13" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="23" />
+          <Property Type="String" Name="RAddress" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="MyAppID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="Gender" Nullable="true" />
+          <Property Type="Int32" Name="MritalStatus" Nullable="true" />
+          <Property Type="String" Name="GenderName" Nullable="true" MaxLength="7" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="IndustryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="BloodG" Nullable="true" MaxLength="3" />
+        </ComplexType>
+        <EntityType Name="AdminLogin">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Type="Int32" Name="UserID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Type="Int32" Name="CityID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="StateID" Nullable="false" />
+          <Property Type="String" Name="CityName" MaxLength="70" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Type="Int32" Name="StateID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="StateName" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="Get_Profile_Result">
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="13" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="23" />
+          <Property Type="String" Name="RAddress" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="MyAppID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="GenderName" Nullable="true" MaxLength="7" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="IndustryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="BloodG" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="StateName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CityName" Nullable="true" MaxLength="70" />
+        </ComplexType>
+        <EntityType Name="UserRegistration">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Type="Int32" Name="UserID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CountryID" />
+          <Property Type="Boolean" Name="IsActive" />
+          <Property Type="Int32" Name="StateID" />
+          <Property Type="Int32" Name="CityID" />
+          <Property Type="String" Name="FirstName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MiddleName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <Property Type="DateTime" Name="ActivatedOn" Precision="3" />
+        </EntityType>
+        <EntityType Name="SubCaste">
+          <Key>
+            <PropertyRef Name="SubCasteID" />
+          </Key>
+          <Property Type="Int32" Name="SubCasteID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SubCasteName" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MaritalStatu">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Type="Int32" Name="StatusID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Complexion">
+          <Key>
+            <PropertyRef Name="ComplexionID" />
+          </Key>
+          <Property Type="Int32" Name="ComplexionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Complexion1" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Height">
+          <Key>
+            <PropertyRef Name="HeightID" />
+          </Key>
+          <Property Type="Int32" Name="HeightID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Height1" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Weight">
+          <Key>
+            <PropertyRef Name="WeightID" />
+          </Key>
+          <Property Type="Int32" Name="WeightID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Weight1" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="DateTime" Name="DateOfBirth" Precision="3" />
+          <Property Type="Int32" Name="WorkID" />
+          <Property Type="Int32" Name="Gender" />
+          <Property Type="Int32" Name="MritalStatus" />
+          <Property Type="String" Name="RAddress" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImagePath" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MyAppID" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="BloodGroupID" />
+          <Property Type="Int32" Name="DegreeID" />
+          <Property Type="Int32" Name="SubCasteID" />
+          <Property Type="Int32" Name="ComplexionID" />
+          <Property Type="Int32" Name="HeightID" />
+          <Property Type="Int32" Name="WeightID" />
+          <Property Type="Int32" Name="PhysicallyChalengeID" />
+          <Property Type="Int32" Name="SpectacleID" />
+          <Property Type="Int32" Name="TalukaID" />
+          <Property Type="String" Name="BirthPlace" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BirthName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BirthTime" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Gotra" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EducationDetail" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CareerID" />
+          <Property Type="String" Name="ServiceDetail" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SalaryAnual" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FatherName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MotherName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FatherOccupation" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactNo" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MamaPlace" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MamaName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CountryID" />
+          <Property Type="Int32" Name="StateID" />
+          <Property Type="Int32" Name="DistrictID" />
+          <Property Type="String" Name="MulGaon" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Taluka">
+          <Key>
+            <PropertyRef Name="TalukaID" />
+          </Key>
+          <Property Type="Int32" Name="TalukaID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Taluka1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CityID" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedBackId" />
+          </Key>
+          <Property Type="Int32" Name="FeedBackId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobileNo" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+        </EntityType>
+        <EntityType Name="VisitorDeail">
+          <Key>
+            <PropertyRef Name="VisitorID" />
+          </Key>
+          <Property Type="Int32" Name="VisitorID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="IP" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country_Code" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country_Name" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Region_Code" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Region_Name" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Zip_Code" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Time_Zone" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Latitude" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Longitude" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Metro_Code" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AccessCount" />
+          <Property Type="DateTime" Name="CreatedON" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedON" Precision="3" />
+          <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OtherCasteUserRegistration">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Type="Int32" Name="UserID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" />
+          <Property Type="String" Name="FirstName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MiddleName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CasteName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SubCasteName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Gender" />
+          <Property Type="DateTime" Name="DOB" Precision="3" />
+          <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <Property Type="DateTime" Name="ActivatedOn" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProfileModelStoreContainer" CdmEntityContainer="ProfileEntities">
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="ProfileModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="ProfileModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industries">
+            <EntityTypeMapping TypeName="ProfileModel.Industry">
+              <MappingFragment StoreEntitySet="Industry">
+                <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+                <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Educations">
+            <EntityTypeMapping TypeName="ProfileModel.Education">
+              <MappingFragment StoreEntitySet="Education">
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+                <ScalarProperty Name="PassYear" ColumnName="PassYear" />
+                <ScalarProperty Name="University" ColumnName="University" />
+                <ScalarProperty Name="EducationDegreeID" ColumnName="EducationDegreeID" />
+                <ScalarProperty Name="EduTypeID" ColumnName="EduTypeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EduDetailID" ColumnName="EduDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EduDegrees">
+            <EntityTypeMapping TypeName="ProfileModel.EduDegree">
+              <MappingFragment StoreEntitySet="EduDegree">
+                <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
+                <ScalarProperty Name="EducationDegreeID" ColumnName="EducationDegreeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EduTypes">
+            <EntityTypeMapping TypeName="ProfileModel.EduType">
+              <MappingFragment StoreEntitySet="EduType">
+                <ScalarProperty Name="EduTypeName" ColumnName="EduTypeName" />
+                <ScalarProperty Name="EduTypeID" ColumnName="EduTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Get_Education" FunctionName="ProfileModel.Store.Get_Education">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProfileModel.Get_Education_Result">
+                <ScalarProperty Name="EduDetailID" ColumnName="EduDetailID" />
+                <ScalarProperty Name="University" ColumnName="University" />
+                <ScalarProperty Name="PassYear" ColumnName="PassYear" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+                <ScalarProperty Name="EduTypeName" ColumnName="EduTypeName" />
+                <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="EmployerTypes">
+            <EntityTypeMapping TypeName="ProfileModel.EmployerType">
+              <MappingFragment StoreEntitySet="EmployerType">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employments">
+            <EntityTypeMapping TypeName="ProfileModel.Employment">
+              <MappingFragment StoreEntitySet="Employment">
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="JobProfile" ColumnName="JobProfile" />
+                <ScalarProperty Name="Desgignation" ColumnName="Desgignation" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EmpDetailID" ColumnName="EmpDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Get_Employment" FunctionName="ProfileModel.Store.Get_Employment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProfileModel.Get_Employment_Result">
+                <ScalarProperty Name="EmpDetailID" ColumnName="EmpDetailID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="Desgignation" ColumnName="Desgignation" />
+                <ScalarProperty Name="JobProfile" ColumnName="JobProfile" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="BloodGroups">
+            <EntityTypeMapping TypeName="ProfileModel.BloodGroup">
+              <MappingFragment StoreEntitySet="BloodGroup">
+                <ScalarProperty Name="BloodG" ColumnName="BloodG" />
+                <ScalarProperty Name="BloodGroupID" ColumnName="BloodGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPQuickSearch" FunctionName="ProfileModel.Store.SPQuickSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProfileModel.SPQuickSearch_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="RAddress" ColumnName="RAddress" />
+                <ScalarProperty Name="MyAppID" ColumnName="MyAppID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+                <ScalarProperty Name="BloodG" ColumnName="BloodG" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPAdvancedSearch" FunctionName="ProfileModel.Store.SPAdvancedSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProfileModel.SPAdvancedSearch_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="RAddress" ColumnName="RAddress" />
+                <ScalarProperty Name="MyAppID" ColumnName="MyAppID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MritalStatus" ColumnName="MritalStatus" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+                <ScalarProperty Name="BloodG" ColumnName="BloodG" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="AdminLogins">
+            <EntityTypeMapping TypeName="ProfileModel.AdminLogin">
+              <MappingFragment StoreEntitySet="AdminLogin">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="ProfileModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="ProfileModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Get_Profile" FunctionName="ProfileModel.Store.Get_Profile">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProfileModel.Get_Profile_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="RAddress" ColumnName="RAddress" />
+                <ScalarProperty Name="MyAppID" ColumnName="MyAppID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+                <ScalarProperty Name="BloodG" ColumnName="BloodG" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="UserRegistrations">
+            <EntityTypeMapping TypeName="ProfileModel.UserRegistration">
+              <MappingFragment StoreEntitySet="UserRegistration">
+                <ScalarProperty Name="ActivatedOn" ColumnName="ActivatedOn" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCastes">
+            <EntityTypeMapping TypeName="ProfileModel.SubCaste">
+              <MappingFragment StoreEntitySet="SubCaste">
+                <ScalarProperty Name="SubCasteName" ColumnName="SubCasteName" />
+                <ScalarProperty Name="SubCasteID" ColumnName="SubCasteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaritalStatus">
+            <EntityTypeMapping TypeName="ProfileModel.MaritalStatu">
+              <MappingFragment StoreEntitySet="MaritalStatus">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Complexions">
+            <EntityTypeMapping TypeName="ProfileModel.Complexion">
+              <MappingFragment StoreEntitySet="Complexion">
+                <ScalarProperty Name="Complexion1" ColumnName="Complexion" />
+                <ScalarProperty Name="ComplexionID" ColumnName="ComplexionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Heights">
+            <EntityTypeMapping TypeName="ProfileModel.Height">
+              <MappingFragment StoreEntitySet="Height">
+                <ScalarProperty Name="Height1" ColumnName="Height" />
+                <ScalarProperty Name="HeightID" ColumnName="HeightID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weights">
+            <EntityTypeMapping TypeName="ProfileModel.Weight">
+              <MappingFragment StoreEntitySet="Weight">
+                <ScalarProperty Name="Weight1" ColumnName="Weight" />
+                <ScalarProperty Name="WeightID" ColumnName="WeightID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="ProfileModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="MulGaon" ColumnName="MulGaon" />
+                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="MamaName" ColumnName="MamaName" />
+                <ScalarProperty Name="MamaPlace" ColumnName="MamaPlace" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="FatherOccupation" ColumnName="FatherOccupation" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="SalaryAnual" ColumnName="SalaryAnual" />
+                <ScalarProperty Name="ServiceDetail" ColumnName="ServiceDetail" />
+                <ScalarProperty Name="CareerID" ColumnName="CareerID" />
+                <ScalarProperty Name="EducationDetail" ColumnName="EducationDetail" />
+                <ScalarProperty Name="Gotra" ColumnName="Gotra" />
+                <ScalarProperty Name="BirthTime" ColumnName="BirthTime" />
+                <ScalarProperty Name="BirthName" ColumnName="BirthName" />
+                <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+                <ScalarProperty Name="TalukaID" ColumnName="TalukaID" />
+                <ScalarProperty Name="SpectacleID" ColumnName="SpectacleID" />
+                <ScalarProperty Name="PhysicallyChalengeID" ColumnName="PhysicallyChalengeID" />
+                <ScalarProperty Name="WeightID" ColumnName="WeightID" />
+                <ScalarProperty Name="HeightID" ColumnName="HeightID" />
+                <ScalarProperty Name="ComplexionID" ColumnName="ComplexionID" />
+                <ScalarProperty Name="SubCasteID" ColumnName="SubCasteID" />
+                <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+                <ScalarProperty Name="BloodGroupID" ColumnName="BloodGroupID" />
+                <ScalarProperty Name="MyAppID" ColumnName="MyAppID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="RAddress" ColumnName="RAddress" />
+                <ScalarProperty Name="MritalStatus" ColumnName="MritalStatus" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Talukas">
+            <EntityTypeMapping TypeName="ProfileModel.Taluka">
+              <MappingFragment StoreEntitySet="Taluka">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Taluka1" ColumnName="Taluka" />
+                <ScalarProperty Name="TalukaID" ColumnName="TalukaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="ProfileModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FeedBackId" ColumnName="FeedBackId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisitorDeails">
+            <EntityTypeMapping TypeName="ProfileModel.VisitorDeail">
+              <MappingFragment StoreEntitySet="VisitorDeails">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ModifiedON" ColumnName="ModifiedON" />
+                <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+                <ScalarProperty Name="AccessCount" ColumnName="AccessCount" />
+                <ScalarProperty Name="Metro_Code" ColumnName="Metro_Code" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Time_Zone" ColumnName="Time_Zone" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip_Code" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region_Name" ColumnName="Region_Name" />
+                <ScalarProperty Name="Region_Code" ColumnName="Region_Code" />
+                <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+                <ScalarProperty Name="Country_Code" ColumnName="Country_Code" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OtherCasteUserRegistrations">
+            <EntityTypeMapping TypeName="ProfileModel.OtherCasteUserRegistration">
+              <MappingFragment StoreEntitySet="OtherCasteUserRegistration">
+                <ScalarProperty Name="ActivatedOn" ColumnName="ActivatedOn" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="SubCasteName" ColumnName="SubCasteName" />
+                <ScalarProperty Name="CasteName" ColumnName="CasteName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

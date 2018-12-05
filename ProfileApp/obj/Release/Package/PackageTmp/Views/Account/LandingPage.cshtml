@@ -1,0 +1,68 @@
+﻿@model PaymentModel
+@{
+    ViewBag.Title = "LandingPage";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="grid_3" style="color: #555; font-size: 18px; line-height: 1.8em;">
+    <div class="container">
+        <div class="breadcrumb1">
+            <ul>
+                <li class="current-page" style="font-size: 20px; color: green;">Successfully Registered!</li>
+            </ul>
+        </div>
+        <div>
+            <form action="@Model.action1">
+               
+              
+                <input type="hidden" name="key" value="@Model.key" />
+                <input type="hidden" name="txnid" value="@Model.txnid"/>
+                  <input type="hidden" name="amount" value="@Model.amount"   />
+                <input type="hidden" name="firstname" value="@Model.firstname" />
+                   <input type="hidden" name="email" value="@Model.email"   />
+                  <input type="hidden" name="phone" value="@Model.phone"/> 
+                <input type="hidden" name="productinfo" value="@Model.productinfo"   />
+                <input type="hidden" name="surl" value="@Model.surl" />
+                <input type="hidden" name="furl" value="@Model.furl"/>
+                <input type="hidden" name="service_provider" value="@Model.service_provider"/>
+                <input type="hidden" name="hash" value="@Model.hash"/>
+                <input type="submit" value="Payment" />
+            </form>
+        </div>
+        <div class="grid_5">
+            Thank You For Registering with Us!
+            
+            <br />
+
+            Your Saajbandh ID is <span style="color: green;"><b>@Convert.ToString(Session["MyAppId"])</b></span>
+            <hr />
+            <span style="color: red; font-size: 20px">Kindly pay Rs.500/- to activate your account.<br />
+            </span>
+            <hr />
+            Following are the Payment Details:<br />
+            <br />
+            <ul>
+                <li><span style="color: #c32143">Paytm:</span> 9421075089 
+                    <br />
+                </li>
+                @*    <li><span style="color: #c32143">UPI:</span> saajbandh@icic<br />
+                    <br />
+                </li>*@
+                <li><span style="color: #c32143">Account Details:</span> </li>
+                Account No:33162854034
+                        <br />
+                Bank Name: State Bank of India<br />
+                Account Name:Rohini R. S.<br />
+                IFSC Code:SBIN0012689
+                        <br />
+                <hr />
+                <i style="color: green">Please send us payment receipt on whatsapp number -> 9421075089.<br />
+                    Your account will be activated within 24 hours post payment confirmation.</i>
+
+            </ul>
+
+
+        </div>
+    </div>
+</div>
+

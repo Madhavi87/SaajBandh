@@ -1,0 +1,229 @@
+﻿@{
+    ViewBag.Title = "QuickSearch";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<script src="~/Content/js/jQuery-2.2.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#error").hide();
+
+        $("#btnSearch").click(function () {
+            var id = $("#txtappid").val();
+            $.ajax({
+                url: "@Url.Action("SearchUserListByID", "SearchUser")",
+                data: { iUserId: id },
+                type: "GET",
+                dataType: "json",
+                success: function (x) {
+
+
+                    //var r = /\\u([\d\w]{4})/gi;
+                    //x = x.replace(r, function (match, grp) {
+                    //    return string.fromcharcode(parseint(grp, 16));
+
+                    //});
+                    x = decodeURIComponent(x);
+
+                    console.log(x);
+                    $("#divSearchResult").html(x);
+                },
+                error: function () {
+                    alert("Failed! An Occur by your Transaction .");
+                }
+            });
+            @*    if (id == "") {
+                $("#error").show();
+            }
+
+
+            else {
+                $("#error").hide();
+
+
+                $.ajax({
+                    url: "@Url.Action("QuickProfileInfo", "SearchUser")",
+                    data: { UserID: id },
+                    type: "GET",
+                    dataType: "html",
+                    success: function (data) {
+                        $("#result").html(data);
+
+                    },
+                    error: function () {
+                        alert("Failed! An Occur by your Transaction .");
+                    }
+                });
+
+                $.ajax({
+                    url: "@Url.Action("QuickViewEducation", "SearchUser")",
+                    data: { UserID: id },
+                    type: "GET",
+                    dataType: "html",
+                    success: function (data) {
+                        $("#divEdu").html(data);
+
+                    },
+                    error: function () {
+                        alert("Failed! An Occur by your Transaction .");
+                    }
+                });
+
+                $.ajax({
+                    url: "@Url.Action("QuickViewEmployment", "SearchUser")",
+                    data: { UserID: id },
+                    type: "GET",
+                    dataType: "html",
+                    success: function (data) {
+                        $("#divEmp").html(data);
+
+                    },
+                    error: function () {
+                        alert("Failed! An Occur by your Transaction .");
+                    }
+                });
+
+
+            }*@
+
+
+
+        });
+    });
+</script>
+
+
+
+@*<section class="content-header">
+    <h1>Search User</h1>
+</section>
+
+<div class="row" style="padding-left: 15px;">
+    <span id="error" style="color: red">Please Enter MyAppID</span><br />
+    <div class="col-md-3">
+        <label class="headinglabel">MyAppID</label>
+        <input type="text" id="txtappid" class="form-control" />
+    </div>
+
+    <div class="col-md-3" style="padding-top: 25px;">
+        <input type="button" value="Search" id="btnSearch" class="btn btn-success" />
+    </div>
+
+
+</div>*@
+
+
+
+<div class="grid_3">
+    <div class="container">
+        <div class="breadcrumb1">
+            <ul>
+                <a href="/Account/Home"><i class="fa fa-home home_1"></i></a>
+                <span class="divider">&nbsp;|&nbsp;</span>
+                <li class="current-page">Search By Profile ID</li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+
+            <div class="form_but1">
+                <label class="col-sm-5 control-lable1" for="sex">Profile ID : </label>
+                <div class="col-sm-7 form_radios">
+                    <div class="input-group1">
+                        <input type="text" id="txtappid" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+
+                        <input type="button" value="Search" id="btnSearch" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="row"></div>
+            <div id="divSearchResult"></div>
+        </div>
+        @*  <div class="col-md-3 match_right">
+            <div class="profile_search1" style="display: none">
+                <form>
+                    <input type="text" class="m_1" name="ne" size="30" required="" placeholder="Enter Profile ID :">
+                    <input type="submit" value="Go">
+                </form>
+            </div>
+            <section class="slider">
+                <h3>Happy Marriage</h3>
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li>
+                            <img src="../Content/images/s2.jpg" alt="" />
+                            <h4>Lorem & Ipsum</h4>
+                            <p>It is a long established fact that a reader will be distracted by the readable</p>
+                        </li>
+                        <li>
+                            <img src="../Content/images/s1.jpg" alt="" />
+                            <h4>Lorem & Ipsum</h4>
+                            <p>It is a long established fact that a reader will be distracted by the readable</p>
+                        </li>
+                        <li>
+                            <img src="../Content/images/s3.jpg" alt="" />
+                            <h4>Lorem & Ipsum</h4>
+                            <p>It is a long established fact that a reader will be distracted by the readable</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <div class="view_profile view_profile2">
+                <h3>View Similar Profiles</h3>
+                <ul class="profile_item">
+                    <a href="#">
+                        <li class="profile_item-img">
+                            <img src="../Content/images/p5.jpg" class="img-responsive" alt="" />
+                        </li>
+                        <li class="profile_item-desc">
+                            <h4>2458741</h4>
+                            <p>29 Yrs, 5Ft 5in Christian</p>
+                            <h5>View Full Profile</h5>
+                        </li>
+                        <div class="clearfix"></div>
+                    </a>
+                </ul>
+                <ul class="profile_item">
+                    <a href="#">
+                        <li class="profile_item-img">
+                            <img src="../Content/images/p6.jpg" class="img-responsive" alt="" />
+                        </li>
+                        <li class="profile_item-desc">
+                            <h4>2458741</h4>
+                            <p>29 Yrs, 5Ft 5in Christian</p>
+                            <h5>View Full Profile</h5>
+                        </li>
+                        <div class="clearfix"></div>
+                    </a>
+                </ul>
+                <ul class="profile_item">
+                    <a href="#">
+                        <li class="profile_item-img">
+                            <img src="../Content/images/p7.jpg" class="img-responsive" alt="" />
+                        </li>
+                        <li class="profile_item-desc">
+                            <h4>2458741</h4>
+                            <p>29 Yrs, 5Ft 5in Christian</p>
+                            <h5>View Full Profile</h5>
+                        </li>
+                        <div class="clearfix"></div>
+                    </a>
+                </ul>
+                <ul class="profile_item">
+                    <a href="#">
+                        <li class="profile_item-img">
+                            <img src="../Content/images/p8.jpg" class="img-responsive" alt="" />
+                        </li>
+                        <li class="profile_item-desc">
+                            <h4>2458741</h4>
+                            <p>29 Yrs, 5Ft 5in Christian</p>
+                            <h5>View Full Profile</h5>
+                        </li>
+                        <div class="clearfix"></div>
+                    </a>
+                </ul>
+            </div>
+        </div>*@
+        <div class="clearfix"></div>
+    </div>
+</div>
